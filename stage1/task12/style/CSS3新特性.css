@@ -1,0 +1,95 @@
+*{
+   padding:0;
+   margin:0;
+}
+/* ====table ==============*/
+table{
+   margin:70px auto;
+   border-collapse:collapse;
+   border:1px solid #999;
+}
+table th{
+   background:#000;
+   color:#f1f1f1;
+}
+table td{
+   text-align:center;
+}
+table tr:nth-of-type(-n+4){
+   color:#f00;
+}
+table tr:nth-of-type(odd){
+   background:#ccc;
+}
+/* ========input========== */
+div.inputbox{
+   margin:70px auto;
+   text-align:center;
+}
+div.inputbox input{
+   display:inline-block;
+   width:200px;
+   height:2em;
+   transition:width 0.5s;
+}
+div.inputbox input:focus{
+   width:400px;
+   border:none;
+   box-shadow:0 0 5px #f50;
+}
+::-webkit-input-placeholder{
+   color:#e4773f;
+}
+/* ==========tab========== */
+div.tab{
+   width:400px;
+   height:300px;
+   margin:70px auto;
+   border:1px solid #000;
+   overflow:hidden;
+   position:relative;
+}
+div.tab>ul{
+   list-style:none;
+   width:1200px;
+   height:300px;
+   position:absolute;
+   top:0;
+}
+div.tab>ul>li{
+   width:400px;
+   height:300px;
+   float:left;
+}
+div.tab>ul>li:first-of-type{
+   background:#f50;
+}
+div.tab>ul>li:nth-of-type(2){
+   background:#03c;
+}
+div.tab>ul>li:last-of-type{
+   background:#2d0;
+}
+div.tab>ul>li:target{
+   animation:moveli 1.5s ease-in 0.3s;
+}
+div.tab>ol{
+   position:absolute;
+   right:10%;
+   bottom:5%;
+   list-style:none;
+}
+div.tab>ol>li{
+   float:left;
+   padding:5px;
+   background:rgba(255,255,255,0.5);
+} 
+/* ===keyframes 关键帧 =====*/
+@keyframes moveli{
+   from{
+      transform:translate(0,0);
+   
+   to{
+      transform:translate(-400px,0);
+   }
+}   
