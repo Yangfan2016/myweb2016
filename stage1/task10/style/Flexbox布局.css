@@ -1,0 +1,47 @@
+*{
+   padding:0;
+   margin:0;
+}
+div.container{
+   padding:20px;
+   border:1px solid #00f;
+   display:-webkit-flex;
+   display:flex;
+}
+div.item{
+   width:150px;
+   padding:20px;
+   border:1px solid #999;
+}
+div.item:first-of-type{
+   height:120px;
+}
+div.item:nth-of-type(2){
+   height:100px;
+}
+div.item:nth-of-type(3){
+   height:40px;
+}
+div.item:last-of-type{
+   height:200px;
+}
+@media (min-width:641px) {
+   div.container{
+      justify-content:space-between;
+   /* 项目在主轴上两边对齐 */
+      align-items:center;
+   /* 项目在侧轴上中间对齐 */
+      color:#ccc;
+   }
+}
+@media (max-width:640px) {
+   div.container{
+      justify-content:center;
+   /* 项目在主轴上水平对齐 */
+      align-items:flex-start;
+   /* 项目在侧轴上上方对齐 */
+      flex-wrap:wrap;
+   /* 项目换行 */
+      color:#00f;
+   }
+}
