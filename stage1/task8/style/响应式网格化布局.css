@@ -1,6 +1,8 @@
 *{
    padding:0;
    margin:0;
+   -webkit-box-sizing:border-box;
+           box-sizing:border-box;
 }
 div{
    height:50px;
@@ -17,7 +19,7 @@ div{
       float:left;
    }
    .col-b-1{
-      width:6.38021%;
+      width:6.88021%;
    }
    .col-b-2{
       width:12.76042%;
@@ -29,7 +31,7 @@ div{
       width:30.73333%;  
    }
    .col-b-6{
-      width:46.09375%;
+      width:47.59375%;
    }
 }
 @media (max-width:768px) {
@@ -37,6 +39,9 @@ div{
    [class*="col-s"]{
       color:#f00;
       float:left;
+   }
+   body{
+      min-width:600px;
    }
    .col-s-1{
       width:6.38021%;
