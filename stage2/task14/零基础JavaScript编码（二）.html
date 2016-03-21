@@ -25,7 +25,7 @@ var aqiData = [
   ["西安", 100]
 ];
    aqiData.sort(function (m,n){
-      return m[1]-n[1];
+      return n[1]-m[1];
    })
    for (var i=0;i<aqiData.length;i++) {
        var data=aqiData[i][1];
