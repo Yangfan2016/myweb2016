@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 15</title>
+    <style>
+    *{padding:0;margin:0;}
+    body{
+    margin:70px auto;
+    width:700px;
+    background:-webkit-gradient(linear,0 0,100% 100%,from(rgba(0,0,0,0.1)),to(rgba(0,0,0,0.7)));
+    }
+    </style>
+  </head>
+<body>
+  <ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海市区空气质量：<b>70</b></li>
+    <li>天津大港空气质量：<b>80</b></li>
+    <li>广州城区空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>乌鲁木齐空气质量：<b>90</b></li>
+  </ul>
+  <ul id="resort">
+    <!-- 
+    <li>第一名：北京空气质量：<b>90</b></li>
+    <li>第二名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li>
+     -->
+
+  </ul>
+
+  <button id="sort-btn">排序</button>
+
+<script type="text/javascript">
+
+    var tul=document.getElementById("source");
+    var tli=tul.getElementsByTagName("li");
+    var tb=tul.getElementsByTagName("b");
+    var btn=document.getElementById("sort-btn");
+    var newul=document.getElementById("resort");
+// 获取有关信息
+function getData() {
+
+    var boxs=new Array();
+    for (var i=0;i<tli.length;i++) {
+       var litxt=tli[i].innerHTML;
+       var bnum=tb[i].innerHTML;
+       var x=litxt.indexOf("空气质量");
+       var city=litxt.substring(0,x);
+       boxs.push([city,bnum]);   // push()
+       
+    }
+  var data=boxs;
+  return data;
+
+}
+
+// 对数据进行排序
+function sortAqiData(data) {
+     data.sort(function (a,b){
+        return a[1]-b[1];
+     });
+     return data;
+}
+// 将数据放入新建的节点中
+function render(data) {
+     
+     for (var i=0;i<data.length;i++) {
+     var newli=document.createElement("li");
+     newul.appendChild(newli);
+     newli.innerHTML="No."+(i+1)+data[i][0]+"空气质量"+data[i][1];
+     }
+}
+
+function btnHandle() {
+ var aqiData = getData();
+ aqiData=sortAqiData(aqiData);
+ render(aqiData);
+}
+
+
+function init() {
+   btn.onclick=btnHandle;
+  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+
+}
+
+init();
+
+</script>
+</body>
+</html>
