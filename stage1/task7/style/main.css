@@ -1,0 +1,562 @@
+/*=======Who am I ?=========
+Issues: line 136
+       两段对齐未实现  line 214
+==========================*/
+*{
+    padding:0;
+    margin:0;
+    font-family:"Microsoft Yahei";
+}
+body{
+	min-width:1296px; /* 严禁缩放 */
+}
+img{
+	cursor:pointer;
+}
+/*========transition=========*/
+button,
+.nav>ul>li,
+.myform>input,
+input.btn,
+.callmedia img,
+a:hover,
+.art2>.pictxt:hover,
+p:hover{
+	-webkit-transition:all 0.5s;
+	        transition:all 0.5s;
+}
+/*========header============*/
+.head{
+    width:100%;
+    height:62px;
+    background:#fff;
+    color:#787B83;
+    font-size:18px;
+
+}
+.head>.logo{
+    float:left;
+    margin-left:60px;
+    height:60px;
+	width:200px;
+}
+.logo>img,
+.logo>p{
+    float:left;
+}
+.logo>img{
+    padding:15.5px;
+}
+.logo>p{
+    height:62px;
+    line-height:62px;
+}
+.head>.nav{
+    float:right;
+    margin-right:60px;
+    height:60px;
+}
+.nav>ul{
+    list-style:none;
+}
+.nav>ul>li{
+    float:left;
+    padding:0 0.5em;
+    height:62px;
+    line-height:62px;
+}
+.nav>ul a{
+	display:inline-block;
+	float:left;
+	height:62px;
+	line-height:62px;
+	text-decoration:none;
+	color:#787B83;
+	margin-left:0.5em;
+}
+.nav>ul a img{
+    margin:24px 0.5em 24px 0;
+    float:left;
+}
+.nav>ul a:hover{
+	color:#E7504D;
+}
+.nav>ul>li:hover,
+.nav>ul>li.selected{
+    color:#E7504D;
+    height:57px;
+    border-bottom:5px solid #ec0000;
+	cursor:pointer;
+}
+/*========article===========*/
+.art{
+    width:auto;
+    height:auto;
+    background:#ccc;
+    overflow:auto;
+}
+.art1{
+    width:100%;
+    height:690px;
+    background:url(../images/bg001.jpg) no-repeat center center;
+    background-size:cover; 
+    position:relative;
+} 
+.art1>.topbox{
+    position:absolute;
+    top:30%;left:12%;
+    color:#fff;
+}
+.topbox>h1{
+    font-size:60px;
+}
+.topbox>button{
+    border:none;
+    width:270px;
+    height:40px;
+    margin-top:40px;
+    line-height:40px;
+    text-align:center;
+    color:#fff;
+    background:#E74F4D;
+}
+.topbox>button:hover,
+.topbox>button:active{
+    color:#f1f1f1;
+    background:#C62445;
+    cursor:pointer;
+}
+.art2{
+    text-align:center;
+    background:#fff;
+}
+.art2>.pictxt{
+    width:25%;  
+    height:auto;
+    float:left; 
+}
+.art2>.pictxt:hover{
+	color:#E74F4D;
+}
+.art2>.pictxt>img{
+    margin:60px auto;
+}
+.art2>.pictxt>p{
+    padding:0 40px;
+    margin-bottom:30px;
+    border-right:3px solid #ccc;
+}
+.art2>.pictxt:last-of-type >p{
+    border:none;
+}
+.art3{
+    text-align:center;
+    padding:60px 0;
+    background:#EDECEC;
+    color:#A0A1A1;
+}
+.art3>img{
+    margin-bottom:30px;
+}
+.art3>h1{
+    font-size:60px;
+}
+.art5{
+    height:340px;
+    background:url(../images/bg002.gif) no-repeat center center;
+    background-size:cover;
+} 
+/*=========select=========*/
+/*=========select=========*/
+/*=========select=========*/
+.art5 select ,
+.art5 option{ 
+    border:none;
+-webkit-appearance:none;
+   -moz-appearance:none;  
+        appearance:none;
+} 
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+.art5 select{
+    background:#fff;
+}
+.art5 select::-ms-expand { 
+    display: none; 
+}
+.art5 select:hover,
+.art5 select:active{
+    border:1px solid #e74f4d;
+}
+.art5 select option{
+    background:#E3E2E4;
+    color:#939293;
+}
+/*=========select====*/
+.art5>.formbox{
+    height:100%;
+    position:relative;
+    color:#939293;
+}
+.formbox>h3{
+    width:300px;
+    position:absolute;
+    top:60px;left:50%;
+    margin-left:-150px;
+    text-align:center;
+    color:#fff;
+}
+.formbox>h3 span{
+    display:inline-block;
+    padding-bottom:5px;
+    border-bottom:2px solid #fff;
+}
+.formbox>h5{
+    width:300px;
+    position:absolute;
+    top:120px;left:50%;
+    margin-left:-150px;
+    text-align:center;
+    color:#fff;
+}
+.formbox>.myform{
+    position:absolute;
+    top:180px;
+    left:12%;right:12%;
+    font-size:20px;
+}
+.myform>select,
+.myform>input{
+    display:inline-block;
+    width:22%;
+    height:30px;
+    margin-right:3%;
+}
+.myform>input{
+    margin:0;
+    border:none;
+    color:#fff;
+    background:#BE4E48;
+}
+.myform>input:hover{
+    color:#f1f1f1;
+    background:#C62445;
+}
+.art6{
+    background:#F8F7F7;
+    padding:60px 15%;
+}
+.art6>.picbox{
+    width:22%;
+    float:left;
+    text-align:center;
+    margin-right:3%;
+}
+.art6>.picbox:last-of-type{
+    margin:0;
+}
+.art6>.picbox:nth-of-type(2) >h3{
+    letter-spacing:25px;
+    font-size:24px;
+}
+.picbox>img{
+    width:100%;
+    height:auto;
+    box-shadow:0 0 5px #000;
+}
+.picbox>h3{
+    padding-top:15px;
+    text-align:center;
+}
+.picbox>h5{
+    padding-bottom:5px;
+    text-align:center;
+}
+.art7{
+    
+}
+.art7>.leftimg{
+    width:67%;
+    height:500px;
+    float:left;
+    background:url("../images/bg003.gif") no-repeat center center;
+    background-size:cover;
+}
+.art7>.righttxt{
+    width:33%;
+    height:500px;
+    float:left;
+    background:#fff;
+    position:relative;
+}
+.righttxt>h2{
+    position:absolute;
+    top:25%;
+    width:100%;
+    text-align:center;
+}
+.righttxt>h2 em{
+    color:#E74F4D;
+    font-style:normal;
+}
+.righttxt>p{
+    position:absolute;
+    top:35%;
+    padding:10px 60px;
+    text-align:center;
+	font-size:16px;
+    line-height:32px;
+    color:#B3AFAC;
+}
+.righttxt>p:hover{
+	color:#666;
+}
+.righttxt>button{
+    position:absolute;
+    bottom:20%;left:50%;
+    margin-left:-40px;
+    width:80px;height:30px;
+    border:1px solid #E74F4D;
+    background:#fff;
+    color:#EA6766;
+}
+.righttxt>button:hover,
+.righttxt>button:active{
+    color:#f1f1f1;
+    background:#C62445;
+}
+.art7>.lefttxt,
+.art7>.middletxt{
+    width:33.5%;
+    float:left;
+    height:521px;
+    position:relative;
+}
+.art7>.lefttxt{
+    background:#E74F4D;
+    color:#fff;
+}
+.art7>.middletxt{
+    background:#fff;
+    color:#E74F4D;
+}
+.newtimes{
+    position:absolute;
+    width:300px;
+    height:300px;
+    top:50%;left:50%;
+    margin-left:-150px;
+    margin-top:-150px;
+    text-align:center;
+    font-size:18px;
+}
+.newtimes>button{
+    width:100px;height:40px;
+    border:1px solid #fff;
+    background:#E74F4D;
+    color:#fff;
+    font-size:18px;
+    position:absolute;
+    top:50%;left:50%;
+    margin-left:-50px;
+}
+.newtimes>button:hover,
+.newtimes>button:active{
+    color:#E74F4D;
+    background:#fff;
+}
+.middletxt button{
+    color:#EA6766;
+    background:#fff;
+    border:1px solid #E74F4D; 
+}
+.middletxt button:hover,
+.middletxt button:active{
+    background:#E74F4D;
+    color:#fff;
+}
+.art7>.rightimg{
+    width:33%;
+    height:521px;
+    float:left;
+    background:url("../images/bg005.gif") no-repeat center center;
+    background-size:cover;
+}
+/*========more form========*/
+.art8{
+    background:#fff;
+    padding:100px 8%;
+    color:#B3AFAC;
+}
+.art8>h2,
+.art8>h5{
+    text-align:center;
+}
+.art8>h2{
+    color:#333;
+}    
+.art8>h5{
+    margin:45px 0;
+}
+.art8>.morebox{
+    float:left;
+    width:35%;
+}
+.morebox>h3{
+    font-size:18px;
+    margin:10px 0;
+    color:#666;
+}
+.morebox>p{
+    line-height:16px;
+    font-size:12px;
+}
+.morebox>p:hover{
+	color:#666;
+}
+.art8>.callform{
+    float:right;
+    width:60%;
+}
+.callform label{
+    display:inline-block;
+    float:left;
+    width:43%;
+    height:40px;
+    line-height:40px;
+    background:#e3e3e3;
+    color:#333;
+    padding-left:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+} 
+.callform label:ntn-of-type(odd){
+    float:left;
+}
+.callform label:nth-of-type(even){
+    float:right;
+}
+.callform input{
+    border:none;
+	width:85%;
+    height:40px;
+    line-height:40px;
+    float:right;
+    background:transparent;
+}
+.callform .feedback{
+    clear:both;
+    width:100%;
+    height:40px;
+    margin:0;
+    padding:0;
+    line-height:40px;
+    background:#e3e3e3;
+    color:#333;
+    border-radius:10px 10px 0 0;
+}
+.callform .feedback p{
+    padding-left:15px;
+}
+.callform textarea{
+    border:none;
+    width:95%;
+    height:70px;
+    resize:vertical;
+    max-height:300px;
+    margin-bottom:15px;
+	padding-left:5%;
+    background:#e3e3e3;
+    border-radius:0 0 10px 10px;
+}
+.callform input.btn{
+    border:none;
+    width:100%;
+    float:none;
+    background:#e3e3e3;
+    color:#333;
+    font-size:18px;
+    border-radius:10px;
+}
+.callform input.btn:hover,
+.callform input.btn:active{
+    color:#fff;
+    background:#F498E8;
+    cursor:pointer;
+}
+/*=======Contact us========*/
+.art9{
+    background:#33363F;
+    color:#fff;
+    text-align:center;
+    padding:100px 0;
+}
+.art9>h2,
+.art9>h5{
+    padding:5px;
+}
+.art9>form{
+    width:502px;/* 测试专用 多了两像素*/
+    height:40px;
+    padding-left:50%;
+    margin-left:-250px;
+    margin-top:20px;
+}
+.art9>form input{
+    display:inline-block;
+    float:left;
+    height:40px;
+    line-height:40px;
+    border:none;
+}
+.art9>form input:first-of-type{
+    width:405px;
+    font-size:18px;
+	padding-left:15px;
+}
+.art9>form input.btn{
+    width:80px;
+    background:#6F7178;
+    color:#fff;
+}
+.art9>form input.btn:hover{
+    background:#666;
+}
+::-webkit-input-placeholder{
+    font-size:18px;
+}
+.art9>.callmedia{
+    width:500px;
+    height:40px;
+    padding-left:50%;
+    margin-left:-250px;
+    margin-top:20px;
+}
+.callmedia img{
+    padding:10px;
+}
+.callmedia img:hover{
+	-webkit-transform:scale(1.5);
+	        transform:scale(1.5);
+}
+/*=========foot============*/
+.foot{
+    overflow:auto;
+    padding:20px 30px;
+    background:#333;
+    color:#fff;
+}
+.foot>span:first-of-type{
+    display:inline-block;
+    float:left;
+}
+.foot>span:last-of-type{
+    display:inline-block;
+    float:right;
+}
+.foot>span a{
+    color:#fff;
+	text-decoration:none;	
+}
+.foot>span a:hover{
+	color:#A9BFFA;	
+}
