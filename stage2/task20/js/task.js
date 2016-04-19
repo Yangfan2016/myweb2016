@@ -80,6 +80,8 @@ function mainF() {
             alert("内容不能为空！");
         }
         else {
+            // 去空格
+            str=str.trim();
             str=str.replace(Regspec, "-").split("-");
             return str;
         }
