@@ -1,0 +1,37 @@
+/*========Who am I ?==========
+    Author:Who am I ?
+    Time:2016-04-19
+    Issues:1.
+============================*/
+@charset "UTF-8"
+*{
+   padding:0;
+   margin:0;
+}
+body{
+   background:hsla(180,100%,50%,0.7);
+}
+div{
+   border:1px solid #666;
+   background:#f1f1f1;
+}
+#root{
+   width:800px;
+   height:200px;
+   margin:100px auto;
+   position:relative;
+   padding:10px;
+}
+.left{
+   position:absolute;
+   top:5%;left:3%;
+   bottom:5%;
+   width:45%;
+}
+.right{
+   position:absolute;
+   top:5%;right:3%;
+   bottom:5%;
+   width:45%;
+}
+    
