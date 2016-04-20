@@ -1,0 +1,40 @@
+<!--========Who am I ?========
+    Author:Who am I ?
+    Time:2016-04-20
+    Issues:1.
+===========================-->
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8"/>
+   <title>表单联动</title>
+   <link rel="stylesheet" type="text/css" href="./style/main.css" />
+   <script type="text/javascript" src="./js/task.js"></script>
+</head>
+<body>
+   <div id="main">
+      <input type="radio" name="isstu" checked="checked" id="r1" />
+      <label for="r1">在校生</label>
+      <input type="radio" name="isstu" id="r2" />
+      <label for="r2">非在校生</label>
+      <div id="stu" class="show">
+         <label>城市</label>
+         <select>
+            <option selected>北京</option>
+            <option>上海</option>
+            <option>广州</option>
+         </select>
+         <label>学校</label>
+         <select>
+            <option selected>北京大学</option>
+            <option>上海交通大学</option>
+            <option>广州暨南大学</option>
+         </select>
+      </div>
+      <div id="nostu" class="hide">
+         <label for="company">就业单位</label>
+         <input type="text" name="company" id="company" />
+      </div>
+   </div>
+</body>
+</html>
