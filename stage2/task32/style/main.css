@@ -1,0 +1,91 @@
+/*========Who am I ?==========
+    Author:Who am I ?
+    Time:2016-04-20
+    Issues:1.className
+============================*/
+@charset "UTF-8";
+*{
+   padding:0;
+   margin:0;
+   font-size:18px;
+}
+body{
+   width:100vw;
+   height:100vh;
+   background:#f1f1f1;
+}
+#main{
+   width:500px;
+   padding:20px;
+   margin:150px auto;
+   border:2px solid #666;
+   background:hsla(0,100%,100%,0.8);
+}
+/*=========用户表单区=========*/
+#f1{
+   
+}
+/*=========生成表单区=========*/
+#f2{
+  
+}
+#f2 label{
+   display:inline-block;
+   width:100px;
+   height:32px;
+   text-align:right;
+   line-height:32px;
+}
+#f2 input{
+   border:1px solid #ccc;
+   width:300px;
+   height:30px;
+   line-height:30px;
+   border-radius:7px;
+}
+#f2 input[type="button"],
+#f1 input[type="button"]{
+   margin-left:100px;
+   border:1px solid #999;
+   height:30px;
+   width:60px;
+   text-align:center;
+   line-height:30px;
+   border-radius:7px;
+}
+#f2 span{
+   display:block;
+   padding:10px;
+   padding-left:0;
+   color:#999;
+   margin-left:100px;
+}
+#f2 input:hover,
+#f2 input:active{
+   border-color:hsla(207,61%,45%,0.7);
+}
+#f2 input[type="button"]:hover,
+#f2 input[type="button"]:active,
+#f1 input[type="button"]:hover,
+#f1 input[type="button"]:active{
+   background:hsla(207,61%,45%,0.7);
+   color:#f1f1f1;
+   border-color:hsla(210,100%,50%,0.7);
+}
+/*===input-border-color=====*/
+.inp-true{
+   border:1px solid hsla(125,100%,50%,0.7);
+}
+.inp-warning{
+   border:1px solid hsla(0,100%,50%,0.7);
+}
+/*========span-color========*/
+.span-true{
+   color:hsla(125,100%,50%,0.7);
+}
+.span-warning{
+   color:hsla(0,100%,50%,0.7);
+}
+.hide{
+    display:none;
+}
