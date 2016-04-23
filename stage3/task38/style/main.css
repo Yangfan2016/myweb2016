@@ -1,0 +1,48 @@
+/**========Who am I ?=========
+  *  Author:Who am I ?
+  *  Time:2016-04-22
+  *  Issues:1.
+============================*/
+@charset "UTF-8";
+*{
+   padding:0;
+   margin:0;
+}
+#main{
+   width:500px;
+   padding:20px;
+   margin:100px auto;
+}
+#tab{
+   width:100%;
+   border-collapse:collapse;
+   /* 合并表格边框  */
+   border:2px solid #333;
+   box-sizing:border-box;
+}
+#tab th,
+#tab td{
+   border:1px solid #999;
+}
+#tab tbody td:hover{
+   background:hsla(180,80%,50%,0.9);
+   color:#fff;
+}
+#tab thead tr{
+   background:#333;
+   color:#f1f1f1;
+}
+#tab tr{
+   background:#ccc;
+}
+#tab tr td:first-of-type{
+   text-align:center;
+   color:#555;
+   font-weight:bolder;
+}
+#tab tfoot input[type="button"]{
+   border:none;
+   color:#f1f1f1;
+   width:100%;
+   background:hsla(0,100%,80%,0.8);
+}
