@@ -1,0 +1,26 @@
+@charset "utf-8";
+*{
+    padding:0;
+    margin :0;
+}
+#tab{
+    margin:100px 0 0 200px;
+    border: 2px solid #333;
+    border-collapse:collapse; /* 合并表格边框 */
+}
+#tab td,
+#tab th{
+    border:1px solid #999;
+    width:6em;
+}
+#tab thead tr{
+    background: #0c000b;
+    color:#f1f1f1;
+}
+h2{
+    text-align:center;
+}
+p{
+    margin:200px 0;
+    padding:20px 100px;
+}
