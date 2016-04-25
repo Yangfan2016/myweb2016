@@ -1,9 +1,11 @@
 /*========Who am I ?==========
-    Author:Who am I ?
-    Time:2016-04-20
-    Issues:1.className？？？
-           2.封装了函数
-           3.优化了代码
+  *  Author:Who am I ?
+  *  Time:2016-04-20
+  *  Issues:1.className？？？
+  *  Update:1.封装了函数
+            2.优化了代码
+            3.更改了提交验证
+            4.降低了耦合性
 ============================*/
     // alert("HelloWorld!");
     
@@ -15,7 +17,7 @@ window.onload=function () {
 function mainF() {
     var aInp=document.querySelectorAll("input");
     var oBtn=document.querySelector("#btn");
-    var oSpan=document.querySelectorAll("#main span");
+    var aSpan=document.querySelectorAll("#main span");
     
     // 遍历所有input 除最后一个按钮外
     for (var i=0;i<aInp.length-1;i++) {
@@ -25,25 +27,30 @@ function mainF() {
             var that=this.index;
             
             // 初始化样式
-            oSpan[that].style.color="";
+            aSpan[that].style.color="";
             aInp[that].style.border="";
-            ifShow(oSpan,that);
+            ifShow(aSpan,that);
         };
         
         aInp[i].onblur=function () {
             var that=this.index;
-            ifTure(aInp,oSpan,that);
+            ifTure(aInp,aSpan,that);
         };
         
     }
     
     // 提交验证
     oBtn.onclick=function () {
-        
+        var c=0;// 计数器
         for (var k=0;k<aInp.length-1;k++) {
-            ifTure(aInp,oSpan,k);
+            c=c+ifTure(aInp,aSpan,k);
             }
-            alert("请查看提示信息确认！");
+            if (c==5) {
+                alert("提交成功！");
+            }
+            else {
+                alert("有"+(5-c)+"项错误！");
+            }
     }; 
     
     
@@ -53,29 +60,29 @@ function mainF() {
 
 
 // 改变样式
-function changeCls(aInp,oSpan,n,bool) {
+function changeCls(aInp,aSpan,n,bool) {
     if (bool) {
-        oSpan[n].style.color="hsla(125,100%,50%,0.7)";
+        aSpan[n].style.color="hsla(125,100%,50%,0.7)";
         aInp[n].style.border="1px solid hsla(125,100%,50%,0.7)";
     }
     else {
-        oSpan[n].style.color="hsla(0,100%,50%,0.7)";
+        aSpan[n].style.color="hsla(0,100%,50%,0.7)";
         aInp[n].style.border="1px solid hsla(0,100%,50%,0.7)";
     }
 }
 
 // 获得焦点显示规则函数
-function ifShow(oSpan,that) {
+function ifShow(aSpan,that) {
     switch (that) {
-        case 0:oSpan[that].innerHTML="请输入4-16为中英文字符";
+        case 0:aSpan[that].innerHTML="请输入4-16为中英文字符";
             break;
-        case 1:oSpan[that].innerHTML="请输入6-11位密码";
+        case 1:aSpan[that].innerHTML="请输入6-11位密码";
             break;
-        case 2:oSpan[that].innerHTML="再次确认密码";
+        case 2:aSpan[that].innerHTML="再次确认密码";
             break;
-        case 3:oSpan[that].innerHTML="请输入邮箱地址";
+        case 3:aSpan[that].innerHTML="请输入邮箱地址";
             break;
-        case 4:oSpan[that].innerHTML="请输入11为电话号码";
+        case 4:aSpan[that].innerHTML="请输入11为电话号码";
             break;
         default:alert("syntax error 'switch case'!");
             break;
@@ -83,58 +90,65 @@ function ifShow(oSpan,that) {
 }
 
 // 失去焦点验证规则函数
-function ifTure(aInp,oSpan,that) {
+function ifTure(aInp,aSpan,that) {
+    var count=0;
     switch (that) {
         case 0:aInp[that].bool=checkName(aInp[that].value);
         if (aInp[that].bool) {
-            oSpan[that].innerHTML="格式正确！";
+            aSpan[that].innerHTML="格式正确！";
+            count=1;
         }
         else {
-            oSpan[that].innerHTML="请输入4-16为中英文字符！";
+            aSpan[that].innerHTML="请输入4-16为中英文字符！";
         }
             break;
         case 1:aInp[that].bool=checkPW(aInp[that].value);
         if (aInp[that].bool) {
-            oSpan[that].innerHTML="格式正确！";
+            aSpan[that].innerHTML="格式正确！";
+            count=1;
         }
         else {
-            oSpan[that].innerHTML="请输入6-11位密码！";
+            aSpan[that].innerHTML="请输入6-11位密码！";
         }
             break;
         case 2:aInp[that].bool=checkPW(aInp[that].value);
         if (aInp[that].bool) {
             if (aInp[that].value==aInp[that-1].value) {
-                oSpan[that].innerHTML="格式正确！";
+                aSpan[that].innerHTML="格式正确！";
+                count=1;
             }
             else {
-                oSpan[that].innerHTML="两次输入不一致！";
+                aSpan[that].innerHTML="两次输入不一致！";
                 aInp[that].bool=false; 
             }
         }
         else {
-            oSpan[that].innerHTML="密码格式不对！";
+            aSpan[that].innerHTML="密码格式不对！";
         }
             break;
         case 3:aInp[that].bool=checkEmail(aInp[that].value);
             if (aInp[that].bool) {
-                oSpan[that].innerHTML="格式正确！";
+                aSpan[that].innerHTML="格式正确！";
+                count=1;
             }
             else {
-                oSpan[that].innerHTML="请输入正确的邮箱格式！";
+                aSpan[that].innerHTML="请输入正确的邮箱格式！";
             }
                 break;
             case 4:aInp[that].bool=checkCall(aInp[that].value);
             if (aInp[that].bool) {
-                oSpan[that].innerHTML="格式正确！";
+                aSpan[that].innerHTML="格式正确！";
+                count=1;
             }
             else {
-                oSpan[that].innerHTML="电话格式不对！";
+                aSpan[that].innerHTML="电话格式不对！";
             }
                 break;
             default:alert("syntax error 'switch case'!");
                 break;
             }
-            changeCls(aInp,oSpan,that,aInp[that].bool);
+            changeCls(aInp,aSpan,that,aInp[that].bool);
+            return count;
 }
 
 // 姓名 规则验证
