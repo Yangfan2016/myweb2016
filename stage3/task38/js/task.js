@@ -1,9 +1,11 @@
-/**========Who am I ?=========
+/**  =======================
   *  Author:Who am I ?
   *  Time:2016-04-22
   *  Issues:1.学下自定义对象
-============================*/
-    // alert("HelloWorld!");
+  *  Update:1.点击按钮切换排序
+  *  =======================
+*/
+
     
 // 事件绑定
 function addEvent(obj,evnt,func) {
@@ -30,25 +32,31 @@ function mainF() {
         ['李四',98,90,78,100,56,95,67],
         ['王五',67,90,87,70,87,45,79]
         ]; 
-    var aBtn=document.getElementsByTagName("input");
+    var aBtn=document.getElementsByTagName("span");
     var aArr=[];// 存放 行tr
     
     // 绘制表格
     renderTable(oTab,thData,tbData);
     
-    // 排序
-    sortNum(oTab,aArr,aBtn);
+    // 判断升序/降序
+    ifAsc(oTab,aArr,aBtn);
 }
 
 // 绘制表格
 function renderTable(tab,hdata,bdata) {
-    var htr,ftr,tr,th,ftd,td;
+    var htr,tr,th,td;
     // 绘制表头 thead
     htr=document.createElement("tr");
     tab.tHead.appendChild(htr);
     for (var k=0;k<7;k++) {
        th=document.createElement("th");
-       th.innerHTML=hdata[k];
+       if (k!=0) {
+            th.innerHTML=hdata[k]+"<span>↑</span><span>↓</span>";
+        }
+        else {
+            th.innerHTML=hdata[k];
+        }
+       
        htr.appendChild(th);
     }
     // 绘制主体 tbody
@@ -61,59 +69,53 @@ function renderTable(tab,hdata,bdata) {
             tr.appendChild(td);
         }
     }
-    // 绘制尾部 tfoot
-    ftr=document.createElement("tr");
-    tab.tFoot.appendChild(ftr);
-    for (var n=0;n<7;n++) {
-        ftd=document.createElement("td");
-        if (n!=0) {
-            ftd.innerHTML="<input type='button' value='升序 ↑' />";
-        }
-        else {
-            ftd.innerHTML="&nbsp;";
-        }
-        ftr.appendChild(ftd);
-    }
+   
 }
 
 // 排序(升序/降序)
-function sortNum(oTab,aArr,aBtn) {
-    var t=1;// 升序
-    for (var k=0;k<aBtn.length;k++) {
-        aArr.length=0;// 初始化数组
-        aBtn[k].index=k;
-        addEvent(aBtn[k],'click',function () {
-            var that=this.index;
-            var atr=oTab.tBodies[0].rows;
-            // 标题显示 科目
-            document.title=oTab.tHead.rows[0].cells[that+1].innerHTML;
-      
-            for (var n=0;n<atr.length;n++) {
-                aArr[n]=atr[n];
-            }
-            aArr.sort(function (tr1,tr2) {
-                    tr1=parseInt(tr1.cells[that+1].innerHTML);
-                    tr2=parseInt(tr2.cells[that+1].innerHTML);
-                    if (t==1) {
-                        return tr1-tr2;
-                    }
-                    else {
-                        return tr2-tr1;
-                    }
-                });
-                for (var m=0;m<atr.length;m++) {
-                oTab.tBodies[0].appendChild(aArr[m]);
-                
-                }
-        if (t==1) {
-            aBtn[that].value="降序 ↓";
-            aBtn[that].style.color="#0f0";
+function sortNum(arr,n,order) {
+    var tr=tab.tBodies[0].rows;
+    // 把 每行 存入数组
+    for (var k=0;k<tr.length;k++) {
+        arr[k]=tr[k];
+    }
+    // 对 每行里的单元格里的数据排序
+    arr.sort(function (tr1,tr2) {
+        tr1=parseInt(tr1.cells[n].innerHTML);
+        tr2=parseInt(tr2.cells[n].innerHTML);
+        if (order=="asc") {
+            return tr1-tr2;
         }
         else {
-            aBtn[that].value="升序 ↑";
-            aBtn[that].style.color="#f00";
+            return tr2-tr1;
         }
-        t=-t; // 取反
+    });
+    // 刷新 每行单元格数据
+    for (var m=0;m<arr.length;m++) {
+        tab.tBodies[0].appendChild(arr[m]);
+    }
+}
+
+// 判断是否升序
+function ifAsc(tab,arr,btn) {
+    var th=tab.tHead.rows[0].cells;
+    for (var i=1;i<th.length;i++) {
+        th[i].index=i;
+    }
+    
+    for (var j=0;j<btn.length;j++) {
+        btn[j].index=j;
+        addEvent(btn[j],'click',function () {
+            var that=this.index;
+            var n=this.parentNode.index;
+            // 判断是否升序
+            if (that%2==0) {
+                sortNum(arr,n,'asc');
+                // 这里有点耦合，可是又不想放到主函数中  ？？？
+            }
+            else {
+                sortNum(arr,n,'desc');
+            }
         });
     }
 }
