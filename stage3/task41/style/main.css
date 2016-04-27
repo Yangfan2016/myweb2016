@@ -1,0 +1,87 @@
+/**
+* Author:Who am I ?
+* Time:2016-04-27
+* Issues:1.
+*/ 
+@charset "UTF-8";
+*{padding:0;margin:0;font-size:1.2rem;}
+div.container{
+   width:500px;
+   margin:100px auto;
+   margin-bottom:0;
+   position:relative;
+}
+/* input */
+#showbtn{
+   display:inline-block;
+   width:60px;
+   height:40px;
+   position:absolute;
+   top:0;left:-63px;
+   border:1px solid #f00;
+   color:#666;
+}
+#showbtn:hover{
+   color:#fff;
+   background:#f00;
+}
+#date{
+   display:inline-block;
+   width:500px;
+   height:40px;
+   border:1px solid #ccc;
+}
+/* table */
+#tab{
+	  border-collapse: collapse;
+  	width:500px;
+	  margin:150px auto;
+	  margin-top:0;
+	  color:#666;
+	  text-align:center;
+	  border:2px solid #333;
+	  border-top: none;
+}
+#tab caption{
+	  padding:5px 0;
+	  background:#f00;
+	  color:#fff;
+	  border:2px solid #666;
+	  border-bottom: none;
+	  position:relative;
+}
+/* :not() 反选 伪类选择器 */
+#tab span:not([id="title"]){
+   color:#0f2;
+   cursor:pointer;
+   position:absolute;
+   font-weight: bolder;
+}
+#tab span:not([id="title"]):hover{
+   color:#f00;
+   background:#fff;
+}
+#tab span:first-of-type{
+   left:20px;
+}
+#tab span:nth-of-type(2){
+   left:50px;
+}
+#tab span:nth-of-type(4){
+   right:50px;
+}
+#tab span:last-of-type{
+   right:20px;
+}
+#tab tr td:first-child,
+#tab tr td:last-child,
+#tab tr th:first-child,
+#tab tr th:last-child{
+   color:#f00; /* 高亮星期六、日 */
+}
+#tab tr td:hover,
+#tab tr td:active{
+   background:#f02;
+   color:#fff;
+   cursor:pointer;
+}
