@@ -1,0 +1,55 @@
+<!--======Who am I ?=======
+    Author:Who am I ?
+    Time:2016-04-29
+    Issues:1.
+===========================-->
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8"/>
+   <title>日历二</title>
+   <script type="text/javascript" src="./js/task.js"></script>
+   <link rel="stylesheet" type="text/css" href="./style/main.css" />
+</head>
+<body>
+   <div class="container">
+      <input type="button" name="showbtn" id="showbtn" value="显/隐" />
+      <input type="text" name="date" id="date" placeholder="点击展开日历" />
+   </div>
+   <table id="tab">
+      <caption>
+           <span id="mpre" title="上一月">&lt;</span>
+           <span id="ypre" title="上一年">&lt;</span>
+           <span id="title"></span>
+      	   <!--存放默认标题-->
+           <span id="ynext" title="下一年">&gt;</span>
+           <span id="mnext" title="下一月">&gt;</span>
+      </caption>
+      <thead>
+         <tr>
+         <th>Sun</th>
+         <th>Mon</th>
+         <th>Tue</th>
+         <th>Wed</th>
+         <th>Thu</th>
+         <th>Fri</th>
+         <th>Sat</th>
+         </tr>
+      </thead>	
+      <tbody></tbody>
+      <tfoot>
+         <tr>
+           <td colspan="2">
+             <input type="button" id="ok" value="ok" />
+           </td>
+           <td  colspan="2">
+             <input type="button" id="cancel" value="cancel" />
+           </td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+           <td>&nbsp;</td>
+         </tr>
+      </tfoot>
+   </table>
+</body>
+</html>
