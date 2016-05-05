@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/*------------------------------------*/
+/**
+  *  @Author:Who am I ?
+  *  @Time:2016-05-04
+  *  @Issues:1.
+  */
+/*------------------------------------*/
+*{padding:0;margin:0;}
+body,
+.mask{
+   background:#ccc;
+   width:100vw;
+   height:150vh;
+   overflow:auto;
+}
+/*==遮照(body class="mask")==*/
+.mask:after{
+   content:"";
+   position:fixed;
+   top:0;bottom:0;
+   left:0;right:0;
+   background:rgba(0,0,0,0.8);
+   z-index:10;
+}
+#user-operate{
+   width:100%;
+   padding:20px 0;
+   background:#f1f1f1;
+}
+#user-operate>input[type="button"]{
+   border:1px solid #999;
+   margin:15px 20px;
+   padding:5px 10px;
+   color:#fff;
+   background:#339999;
+}
+#user-operate>input[type="button"]:hover{
+   border:1px solid #339999;
+   color:#339999;
+   background:#fff;
+}
+/*=====弹出框======*/
+#dialog{
+   display:none;
+   width:90vw;
+   max-height:50vh;
+   position:fixed;
+   top:50%;left:50%;
+   margin-left:-45vw;
+   margin-top:-25vh;
+   background:rgba(255,255,255,0.7);
+   z-index:15;
+   overflow:hidden;
+}
+#dialog .pic{
+   width:100%;
+   text-align:center;
+}
+#dialog .pic img{
+   width:auto;
+   height:50vh;
+}
+/*========main========*/
+#main{
+   position:relative;
+   width:100%;
+   height:100%;
+}
+#main>div.box{
+   padding:15px 0 0 15px;
+   float:left;
+}
+#main>div.box>div.pic{
+   padding:10px;
+   box-shadow:0 0 7px rgba(0,0,0,0.7);
+}
+#main>div.box img{
+   width:150px;
+   height:auto;
+}
