@@ -3,7 +3,7 @@
  *  @Time:2016-05-04
  *  @File:compatible.js
  *  @Func:1.阻止冒泡 stopBubble(ev)
- *        2.事件委托
+ *        2.事件委托 addEvent(obj,evnt,func)
  *  
  */
     // alert("HelloWorld!");
