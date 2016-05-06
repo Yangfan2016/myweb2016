@@ -38,8 +38,8 @@ function showBigPic(dia_id,body_cls,boxs,m_id) {
     });
     
     // 阻止body冒泡
-    addEvent(dialog,"click",function (ev) {
-        stopBubble(ev);
+    addEvent(dialog,"click",function () {
+        stopBubble(event);
     });
     
     // 点击遮照消失
