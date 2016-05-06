@@ -1,36 +1,43 @@
 /**
- *  @Author:Who am I ?
- *  @Time:2016-05-04
- *  @File:waterFall(瀑布流)
- *  @Request:1.点击图片，显示遮照
- *  @Issues:1.AJAX 学
- *           2.代码冗余
- *  
- */
+  *  @Author:Who am I ?
+  *  @Time:2016-05-04
+  *  @File:waterFall(瀑布流)
+  *  @Request:1.点击图片，显示遮照
+  *  @Issues:1.AJAX 学
+  *          2.代码冗余
+  *  @Update:1.事件委托
+  *          2.事件绑定
+  */
     // alert("HelloWorld!");
-    
-window.onload=function () {
+
+addEvent(window,"load",function () {
     var aBox=[]; // 存放"<div class='box'>...</div>"盒子
     addPic("main","box","pic",12); // 初始化 添加图片
     waterFall("main","box"); // 瀑布流函数
     aBox=userAction("addbtn","delebtn","main"); // 用户操作
-    showBigPic("dialog","mask",aBox); // 放大显示图片
-};
+    showBigPic("dialog","mask",aBox,"main"); // 放大显示图片
+}
+);  
 
 // 放大显示图片,点击遮照消失
-function showBigPic(dia_id,body_cls,boxs) {
+function showBigPic(dia_id,body_cls,boxs,m_id) {
     var body=document.querySelector("body");
+    var main=document.getElementById(m_id);
     var dialog=document.getElementById(dia_id);
     
-    for (var i=0;i<boxs.length;i++) {
-        addEvent(boxs[i],"click",function () {
-            stopBubble(event); // 阻止body冒泡
-            dialog.innerHTML=this.innerHTML;
+    // 事件委托
+    addEvent(main,"click",function (ev) {
+        var ev=ev?ev:window.event;
+        var target=ev.target?ev.target:ev.srcElement;
+        stopBubble(ev);
+        if (target.nodeName.toLowerCase()=="img") {
+            dialog.innerHTML=target.parentNode.parentNode.innerHTML;
             dialog.style.display="block";
             body.className=body_cls;
-        });
-
-    }
+        }
+    });
+    
+    
     
     // 阻止body冒泡
     addEvent(dialog,"click",function () {
