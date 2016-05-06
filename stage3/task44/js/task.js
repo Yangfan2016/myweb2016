@@ -29,7 +29,7 @@ function showBigPic(dia_id,body_cls,boxs,m_id) {
     addEvent(main,"click",function (ev) {
         var ev=ev?ev:window.event;
         var target=ev.target?ev.target:ev.srcElement;
-        stopBubble(ev);
+        stopBubble(ev); // 阻止body冒泡
         if (target.nodeName.toLowerCase()=="img") {
             dialog.innerHTML=target.parentNode.parentNode.innerHTML;
             dialog.style.display="block";
@@ -37,13 +37,6 @@ function showBigPic(dia_id,body_cls,boxs,m_id) {
         }
     });
     
-    
-    
-    // 阻止body冒泡
-    addEvent(dialog,"click",function () {
-        stopBubble(event);
-    });
-
     // 点击遮照消失
     addEvent(body,"click",function () {
         dialog.style.display="none";
