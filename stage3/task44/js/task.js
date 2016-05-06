@@ -38,7 +38,7 @@ function showBigPic(dia_id,body_cls,boxs,m_id) {
     });
     
     // 阻止body冒泡
-    addEvent(dialog,"click",function () {
+    addEvent(dialog,"click",function (ev) {
         stopBubble(ev);
     });
     
