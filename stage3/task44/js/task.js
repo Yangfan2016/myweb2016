@@ -43,7 +43,6 @@ function showBigPic(dia_id,body_cls,boxs,m_id) {
         body.className="";
     });
     
-    
 }
 
 // 用户操作
@@ -100,6 +99,7 @@ function addPic(id,cls,cls2,len) {
     }
     
 }
+
 // 瀑布流
 function waterFall(id,cls) {
     var oPar=document.getElementById(id);
