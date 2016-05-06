@@ -37,6 +37,11 @@ function showBigPic(dia_id,body_cls,boxs,m_id) {
         }
     });
     
+    // 阻止body冒泡
+    addEvent(dialog,"click",function () {
+        stopBubble(ev);
+    });
+    
     // 点击遮照消失
     addEvent(body,"click",function () {
         dialog.style.display="none";
