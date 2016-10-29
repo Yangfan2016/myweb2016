@@ -1,68 +1,174 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8" />
     <title>Yangfan-personal by Yangfan2016</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Yangfan-personal</h1>
-      <h2 class="project-tagline">杨帆的个人网站</h2>
-      <a href="https://github.com/Yangfan2016/myweb2016" class="btn">View on GitHub</a>
-      <a href="https://github.com/Yangfan2016/myweb2016/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/Yangfan2016/myweb2016/tarball/master" class="btn">Download .tar.gz</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      *{padding:0;margin:0;}
+      a{color:#333;text-decoration:none;}
+      html,body{width:100%;height:100%;}
+      body{
+        min-width:500px;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #606c71;
+      }
+      .page-heading{
+        padding:3rem 4rem;
+        background:linear-gradient(120deg,#3c6,#26f);
+        color:#fff;
+        text-align:center;
+      }
+      .page-heading>h1{
+        font-size:3rem;
+        padding:10px 0;
+      }
+      .page-heading>h2{
+        font-size:14px;
+        font-weight:200;
+        padding:10px 0;
+      }
+      .page-heading>.btn{
+        display:inline-block;
+        margin:10px 15px;
+        width:150px;
+        height:50px;
+        line-height:50px;
+        text-align:center;
+        border:1px solid rgba(255, 255, 255, 0.2);
+        border-radius:5px;
+        color: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.08);
+        transition:background-color ease-in 0.3s;
+      }
+      .page-heading>.btn:hover{
+        background:rgba(255,255,255,0.3);
+        color:rgba(255,255,255,0.8);
+      }
+      .page-heading>.flag{
+        position:fixed;
+        top:-20px;right:-70px;
+        width:150px;
+        height:30px;
+        line-height:30px;
+        box-shadow:0 0 5px #333;
+        transform-origin:0 0 0;
+        transform:rotate(45deg);
+        background:#159957;
+      }
+      .page-heading>.flag>a{
+        color:#fff;
+      }
+      .page-content{
+        padding:3rem 4rem;
+        overflow:hidden;
+      }
+      .content-main{
+        width:63%;
+        float:left;
+      }
+      .content-main>h2{
+        color:#159957;
+      }
+      .content-main>p.intro{
+        margin:10px 0;
+      }
+      .content-sidebar{
+        width:25%;
+        float:right;
+        position:relative;
+      }
+      .content-sidebar>.sidebar-nav{
+        list-style:none;
+        padding:5px 10px;
+        border:1px solid #ccc;
+      }
+      .sidebar-nav>li{
+        padding:3px 5px 3px 15px;
+        border-bottom:1px dotted #ccc;
+      }
+      .sidebar-nav>li:last-of-type{
+        border:none;
+      }
+      .content-sidebar>.flag{
+        position:absolute;
+        top:0;right:10px;
+        width:26px;
+        height:60px;
+        background:#26f;
+      }
+      .flag>.triangle{
+        position:absolute;
+        bottom:0;left:0;
+        display:block;
+        border-bottom:13px solid #fff;
+        border-left:13px solid transparent;
+        border-right:13px solid transparent;
+      }
+
+
+      .page-foot{
+        padding:1rem 4rem;
+        border-top:1px solid #ccc;
+      }
+      .page-foot>h5{
+        text-align:center;
+      }
+
+      @media screen and (max-width:640px) {
+        body{font-size:12px;}
+        .page-heading>h1{
+          font-size:2rem;
+        }
+        .page-heading>.btn{
+          width:100%;
+          margin:10px 0;
+        }
+        .content-main{
+          width:100%;
+          float:none;
+        }
+        .content-sidebar{
+          width:100%;
+          float:none;
+        }
+      }
+    </style>
+</head>
+<body>
+  <header class="page-heading">
+    <h1 class="project-name">Yangfan-personal</h1>
+    <h2 class="project-tagline">杨帆的个人网站 建设中...</h2>
+    <a href="https://github.com/Yangfan2016/myweb2016" class="btn">View on GitHub</a>
+    <a href="https://github.com/Yangfan2016/myweb2016/zipball/master" class="btn">Download .zip</a>
+    <a href="https://github.com/Yangfan2016/myweb2016/tarball/master" class="btn">Download .tar.gz</a>
+    <div class="flag"><a href="https://github.com/Yangfan2016">follow me</a></div>
+  </header>
+  <article class="page-content">
+      <section class="content-main">
+        <h2>Welcome to visit to my website</h2>
+        <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, eos ullam totam saepe, consequatur ut vel modi magnam velit, ipsum iste quidem enim pariatur, repudiandae fuga harum nostrum exercitationem maiores.</p>
+        <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, eos ullam totam saepe, consequatur ut vel modi magnam velit, ipsum iste quidem enim pariatur, repudiandae fuga harum nostrum exercitationem maiores.</p>
+        <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, eos ullam totam saepe, consequatur ut vel modi magnam velit, ipsum iste quidem enim pariatur, repudiandae fuga harum nostrum exercitationem maiores.</p>
     </section>
+    <aside class="content-sidebar">
+        <ul class="sidebar-nav">
+          <li><a href="javascript:void(0);">FE-Deep-Learning</a></li>
+          <li><a href="javascript:void(0);">Works show</a></li>
+          <li><a href="javascript:void(0);">Music play</a></li>
+          <li><a href="javascript:void(0);">Contact us</a></li>
+          <li><a href="javascript:void(0);">About me</a></li>
+        </ul>
+        <div class="flag">
+          <span class="triangle"></span>
+        </div>
+    </aside>
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-my-personal-website" class="anchor" href="#welcome-to-my-personal-website" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Welcome to my personal website</strong>
-</h3>
-      <h3>你好，中国！</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
-
-<h3>
-<a id="helloworld" class="anchor" href="#helloworld" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>HelloWorld</strong>
-</h3>
-
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
-
-<hr>
-
-<p><img src="https://github.com/Yangfan2016/PersonalWorks/blob/master/work001/images/bg001.jpg" alt="bg001"></p>
-
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Creating pages manually</strong>
-</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a id="author-who-am-i-" class="anchor" href="#author-who-am-i-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Author: Who am I ?</strong>
-</h3>
-
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<hr>
-
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/Yangfan2016/myweb2016">Yangfan-personal</a> is maintained by <a href="https://github.com/Yangfan2016">Yangfan2016</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
-  </body>
+  </article>
+  <footer class="page-foot">
+      <h5>This page was generated by GitHub Pages | Copyright all reserved by <a href="javascript:void(0);">Who am I ?</a> &copy; </h5>
+  </footer>
+</body>
 </html>
