@@ -5,7 +5,7 @@
   */
 
 /**
-  * @Param: start,duration,callback
+  * @Param: end,[duration],[callback]
   *
   */
 function self_scrollTo() {
@@ -13,12 +13,14 @@ function self_scrollTo() {
         end=Math.round(arguments[0]),
         duration=arguments[1] || 500,
         speed=0,
-        callback=arguments[2] || null;
-        timer=null,
-        flag=1;
+        callback=arguments[2] || null,
+        flag=1,
+        timer=null;
+
     clearInterval(timer);
     start=document.documentElement.scrollTop || document.body.scrollTop;
     flag=(end-start)>0?flag:-flag;
+    
     timer=setInterval(function () {
         if (start===end) {
             clearInterval(timer);
@@ -50,26 +52,18 @@ $(function () {
             "display":"none"
         });
     };
-    // slide cover-page
-    // $("#pageCover").on("touchstart",function () {
-    //     var _this=this;
-    //     $(_this).animate({
-    //         "top":"-100%"
-    //     },1500,"ease-out",function () {
-    //         $(_this).css("display","none");
-    //         $("#pageMain").removeClass("hide");
-            
-    //     });
-    // });
-    
     // init
-    self_scrollTo(0,300,function () {
+    self_scrollTo(0,200,function () {
         // 存放导航模块位置信息
         $(".body_module").each(function (index,item) {
             localStorage.setItem(index,item.getBoundingClientRect().top);
-        
         });
+        // mobile
         $("#mainNav .nav_item").each(function (index,item) {
+            this.dataset.scrollTo=localStorage.getItem(index);
+        });
+        // PC
+        $("#mainNav_PC .nav_btn").each(function (index,item) {
             this.dataset.scrollTo=localStorage.getItem(index);
         });
     });
@@ -92,7 +86,7 @@ $(function () {
         }
     });
     // show the button of back to top
-    $("#pageMain").on("touchmove",function () {
+    $("#pageMain").on("touchmove mousewheel",function () {
         clearTimeout(timer);
         $("#backTop").css("opacity",1);
         timer=setTimeout(function () {
@@ -100,16 +94,21 @@ $(function () {
         },2500);
     });
     // back to top
-    $("#backTop").on("touchstart",function () {
-        self_scrollTo(0,500);
+    $("#backTop").on("click",function () {
+        self_scrollTo(0,200);
     });
     // navPic back to top
     $("#navPic").on("touchstart",function () {
-        self_scrollTo(0,500,hideNav);
+        self_scrollTo(0,200,hideNav);
     });
     // 导航 跳入指定锚点
+    // mobile
     $("#mainNav").on("touchstart",".nav_item",function () {
-        self_scrollTo(this.dataset.scrollTo,300,hideNav);
+        self_scrollTo(this.dataset.scrollTo,200,hideNav);
+    });
+    // PC
+    $("#mainNav_PC").on("click",".nav_btn",function () {
+        self_scrollTo(this.dataset.scrollTo,200);
     });
     
 });
