@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>amap</title>
+	<style>
+	*{padding:0;margin:0;}
+	html,body{width:100%;height:100%;}
+	.container{
+	width:100%;
+	height:100%;
+	}
+	</style>
+</head>
+<body>
+	<div id="container" class="container"></div>
+<!-- scripts -->
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=775d883c150c7e52827d0ba76ec13b11"></script>
+<script type="text/javascript">
+window.addEventListener("load",function () {
+	var map=new AMap.Map("container",{
+		center:new AMap.LngLat(116.397428, 39.90923),
+		zoom:11,
+		resizeEnable:true
+	});
+
+	// 搜索插件
+	map.plugin(["AMap.PlaceSearch"],function () {
+		var placesearch=new AMap.PlaceSearch();
+
+		placesearch.search("风景名胜",function (status,result) {
+			console.log(result);
+		});
+	});
+	
+},false);
+</script>
+</body>
+</html>
