@@ -42,14 +42,14 @@ window.addEventListener("load",function () {
 		});
 
 		// 关键字搜索
-		// placesearch.search("风景名胜",function (status,result) {
-		// 	console.log(result);
-		// });
-
-		// 周边搜索
-		placesearch.searchNearBy("公共厕所",map.getCenter(),3000,function (status,result) {
+		placesearch.search("八达岭",function (status,result) {
 			console.log(result);
 		});
+
+		// 周边搜索
+		// placesearch.searchNearBy("公共厕所",map.getCenter(),3000,function (status,result) {
+		// 	console.log(result);
+		// });
 
 	});
 	
