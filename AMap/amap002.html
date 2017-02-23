@@ -25,7 +25,7 @@ window.addEventListener("load",function () {
 	});
 
 	// 搜索插件
-	map.plugin(["AMap.PlaceSearch"],function () {
+	AMap.service("AMap.PlaceSearch",function () {
 		var placesearch=new AMap.PlaceSearch();
 
 		placesearch.search("风景名胜",function (status,result) {
