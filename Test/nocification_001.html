@@ -5,19 +5,53 @@
 	<title>Notification</title>
 </head>
 <body>
-	<button id="btn" onclick="popNotice()">弹出通知框</button>
+	<button id="btn" onclick="notifyMe()">弹出通知框</button>
 	<p id="text"></p>
 <script type="text/javascript">
+var nrr=[];
+window.nrr=nrr;
 var popNotice=()=>{
+    var tagId=(new Date().getTime()/1000);
+    var notice=new Notification("Hello World",{
+        body:"你好\nLorem ipsum dolor sit amet, consectetur adipisicing elit. A, nihil, non vitae nisi consequatur maxime voluptates magni nobis quo reiciendis. Nulla, vitae voluptatum debitis modi eveniet ullam blanditiis doloremque perferendis!",
+        icon:"http://img4.imgtn.bdimg.com/it/u=3845209004,4113255300&fm=23&gp=0.jpg",
+        tag:tagId
+    });
+
+    notice.addEventListener("click",function () {
+        var text=document.querySelectorAll("#text")[0];
+        text.innerHTML+="OK<br />";
+    },false);
+
+    notice.addEventListener("show",function (ev) {
+        console.log("SHOW");
+    },false);
+
+    notice.addEventListener("close",function () {
+        console.log("CLOSE");
+        nrr.pop();
+    },false);
+
+    notice.addEventListener("error",function () {
+        console.log("ERROR");
+    },false);
+
+    // test
+    nrr.push(notice);
+
+};
+var notifyMe=()=>{
     if (!("Notification" in window)) {
         alert("Your browser didn't support this notice api!!!");
     } else {
-        if (Notification.permission==="granted") {
-             var notice=new Notification("Hello World",{
-                body:"你好",
-                icon:"http://img4.imgtn.bdimg.com/it/u=3845209004,4113255300&fm=23&gp=0.jpg"
+        if (Notification.permission==="granted2") {
+            popNotice();
+        } else if (Notification.permission!=="denied") {
+            Notification.requestPermission(function (permission) {
+                console.log(permission);
+                popNotice();
             });
-        }
+        } 
     }
 };
 var init=()=>{
