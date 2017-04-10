@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Notification</title>
+</head>
+<body>
+	<button id="btn" onclick="popNotice()">弹出通知框</button>
+	<p id="text"></p>
+<script type="text/javascript">
+var popNotice=()=>{
+    if (!("Notification" in window)) {
+        alert("Your browser didn't support this notice api!!!");
+    } else {
+        if (Notification.permission==="granted") {
+             var notice=new Notification("Hello World",{
+                body:"你好",
+                icon:"http://img4.imgtn.bdimg.com/it/u=3845209004,4113255300&fm=23&gp=0.jpg"
+            });
+        }
+    }
+};
+var init=()=>{
+
+};
+window.addEventListener("load",init,false);
+</script>
+</body>
+</html>
