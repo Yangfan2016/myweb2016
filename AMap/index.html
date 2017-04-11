@@ -1,59 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>amap</title>
-	<style>
-	*{padding:0;margin:0;}
-	html,body{width:100%;height:100%;}
-	.container{
-	width:100%;
-	height:100%;
+	<style type="text/css">
+	*{
+		padding:0;
+		margin:0;
 	}
-	.result{
-	position:fixed;
-	top:10px;right:15px;
+	html,body{
+		width:100%;
+		height:100%;
 	}
 	</style>
 </head>
 <body>
-	<div id="container" class="container"></div>
-	<div id="result" class="result"></div>
-<!-- scripts -->
-<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=775d883c150c7e52827d0ba76ec13b11"></script>
+<div id="mapContainer" style="width:100%;height:100%;"></div>
+<div class="panel" style="position:fixed;top:20px;left:15px;padding:10px 15px;background-color:#fff;">
+	<select name="province" id="province" style="width:100px;">
+		<option value="">省份/直辖市</option>
+	</select>
+	<select name="city" id="city" style="width:100px;">
+		<option value="">市</option>
+	</select>
+</div>
+<div id="tip" style="position:fixed;top:20px;right:15px;padding:10px 15px;background-color:#fff;"></div>
 <script type="text/javascript">
-window.addEventListener("load",function () {
-	var map=new AMap.Map("container",{
-		center:new AMap.LngLat(116.397428, 39.90923),
-		zoom:11,
-		resizeEnable:true
+// crete script
+(()=>{
+	const KEY="775d883c150c7e52827d0ba76ec13b11";
+	var script=document.createElement("script");
+	script.src="http://webapi.amap.com/maps?v=1.3&key="+KEY;
+	script.type="text/javascript";
+	document.head.appendChild(script);
+})();
+
+var init=()=>{
+	
+	var map=new AMap.Map("mapContainer",{
+		city:"北京市",
+		zoom:12,
+		resizeEnable:true   
+	});
+	window.map=map;
+	// 行政区查询
+	AMap.plugin("AMap.DistrictSearch",function () {
+		var district=new AMap.DistrictSearch({
+			level:"city",
+			showbiz:true,
+			extensions:"all",
+			subdistrict:1
+		});
+
+		// 搜索行政区
+		var searchDistrct=(kw,callback)=>{
+			district.search(kw,function (status,result) {
+				if (status==="complete") {
+					console.log(result);
+					var resDL=result.districtList[0];
+					var list=[];
+					var options='<option>--请选择--</option>';
+					list=resDL.districtList || result.districtList; // 兼顾台湾省
+
+					list.forEach(function (item,index) {
+						var str=item.name;
+						options+='<option value="'+item.adcode+'">'+str+'</option>';
+					});
+					callback(options);
+				}
+			});
+		};
+			
+		// 省份|直辖市
+		var kw="中国";
+		searchDistrct(kw,function (options) {
+			document.getElementById('province').innerHTML=options;
+		});
+	    // 市
+		document.getElementById('province').addEventListener("change",function () {
+			kw=this.value;
+			map.setCity(kw);
+			document.getElementById('city').innerHTML="";
+			searchDistrct(kw,function (options) {
+				document.getElementById('city').innerHTML=options;
+			});
+		},false);
+		// 选择市
+		document.getElementById('city').addEventListener("change",function (event) {
+			map.setCity(this.value);
+		});
 	});
 
-	// 搜索插件
-	AMap.service("AMap.PlaceSearch",function () {
-		var placesearch=new AMap.PlaceSearch({
-			city:"北京市",
-			type:"公共设施",
-			map:map,
-			panel:"result",
-			pageSize:5,
-			pageIndex:1,
-			extensions:"all"
-		});
+	// 天气查询
+	AMap.service("AMap.Weather",function () {
+		var weatherlive=new AMap.Weather();
 
-		// 关键字搜索
-		placesearch.search("八达岭",function (status,result) {
-			console.log(result);
-		});
-
-		// 周边搜索
-		// placesearch.searchNearBy("公共厕所",map.getCenter(),3000,function (status,result) {
-		// 	console.log(result);
+		// 当天天气
+		// weatherlive.getLive('140100',function (errorStatus,result) {
+		// 	if (!errorStatus) {
+		// 		console.log(result);
+		// 		var str='';
+		// 		for (key in result) {
+		// 			console.log(key,result[key]);
+		// 		}
+				
+		// 	}
+		// });
+		// 今后4天的天气
+		// weatherlive.getForecast('140700',function (errorStatus,result) {
+		// 	if (!errorStatus) {
+		// 		console.log(result);
+		// 	}
 		// });
 
+		var old_city='未知市';
+		// 地图移动事件
+		map.on("mapmove",function () {
+			map.getCity(function (result) {
+				console.log("%c当前城市："+result.province+result.city,"color:#9c3;font-size:32	px;");
+
+				if (old_city!==(result.city || result.province)) {
+					weatherlive.getLive((result.city || result.province),function (errorStatus,result) {	
+						if (!errorStatus) {
+							console.log(result);
+							var str='';
+							for (key in result) {
+								console.log(key,result[key]);
+							}
+							
+						}
+					});
+				}
+				
+				old_city=result.city || result.province;	
+			});
+		});
 	});
-	
-},false);
+
+	// 精确定位
+	AMap.plugin('AMap.Geolocation', function() {
+        var geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+
+       	geolocation.on('complete',onComplete);
+       	geolocation.on('error',onError);
+        // AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        // AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+    	var address=data.addressComponent;
+    	console.log(data);
+        console.log("%c定位城市："+address.province+address.city,"color:#f00;");
+        console.log("%c具体位置："+data.formattedAddress,"color:#f00;");
+
+
+        var str=['定位成功'];
+        str.push('经度：' + data.position.getLng());
+        str.push('纬度：' + data.position.getLat());
+        if(data.accuracy){
+             str.push('精度：' + data.accuracy + ' 米');
+        }//如为IP精确定位结果则没有精度信息
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('tip').innerHTML = str.join('<br>');
+    }
+    //解析定位错误信息
+    function onError(data) {
+    	console.log(data);
+        document.getElementById('tip').innerHTML = '定位失败';
+    }
+		
+};
+window.addEventListener("load",init,false);
 </script>
 </body>
 </html>
