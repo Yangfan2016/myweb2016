@@ -1,0 +1,186 @@
+@charset "UTF-8";
+/* Mobile css */
+@media screen and (max-device-width: 768px) {
+	/* indexpage css */
+	.index_page>.searchgroup{
+	    margin:20px auto;
+	}
+	.index_page>.searchgroup>.main_title>.title{
+	    margin:50px 0 30px 0;
+	    font-size: 1.2rem;
+	}
+	.index_page>.searchgroup>.main_title>.title>.title_small{
+		display:none;
+		/*margin:8px 0;
+		font-size:16px;*/
+	}
+	.index_page>.searchgroup>.main_searchbox{
+	    width:100%;
+	}
+	.index_page>.searchgroup>.main_searchbox>.inputbox.search{
+	    width:65%;
+	}
+	.index_page>.searchgroup>.main_searchbox .input-text{
+	    width:100%;
+	}
+	.index_page>.searchgroup>.main_searchbox>.inputbox{
+		width:80px;
+	}
+	.index_page>.searchgroup>.main_searchbox .input-button{
+		width:100%;
+	}
+	.index_page>.bottom{
+		bottom:5px;
+	}
+	/*mainpage css*/
+	.page_topLeft{
+		left:0;right:0;
+		margin:0 auto;
+		width:90%;
+	}
+	.query_linesearch{
+		height:40px;
+	}
+	.query_linesearch>.input-text{
+		width:70%;
+	}
+	.query_linesearch>.span-btn{
+		width:15%;
+		height:40px;
+		line-height:40px;
+	}
+	.container-linepath,
+	.container-routepanel,
+	.container-stationpanel{
+		left:0px;
+	    right:0px;
+	    width:100%;
+	    top:70%;
+	    bottom:0px;
+	    max-height:none;
+	    box-shadow:none;
+	    border-radius:0;
+	    background-color:#fff;
+	    z-index:200;
+	}
+	.top_weather{
+		top:15%;
+		left:initial;
+		right:20px;
+		padding:0 8px;
+		height:35px;
+	}
+	.w_left{
+		margin-right:0;
+		line-height:35px;
+	}
+	.w_right{
+		display:none;
+		padding:2px 0;
+	}
+	.w_citylist{
+		left:initial;
+		right:0;
+		width:168%;
+	}
+	.top_controllbar{
+		left:initial;
+	    right:20px;
+	    top:22%;
+	    height:auto;
+	    display:block;
+	    text-align:center;
+	}
+	.top_controllbar>.btn{
+		margin:0 12px;
+    	padding:8px 0;
+    	border-right:none;
+		border-bottom:1px solid #ccc;
+	}
+	.top_controllbar>.btn.layer.roadnet,
+	.top_controllbar>.btn.mousetool.clearmap{
+		line-height:32px;
+	}
+	.top_controllbar>.btn.mousetool.clearmap{
+		top:35px;/*left:-115%;*/
+	}
+	.mapstyle_list{
+	    top: 0;left:-220px;
+	    width:200px;
+	}
+	.more_drivingsearch{
+		font-size:0.7rem;
+	}
+	.driving_query{
+		padding:0;
+	}
+	.driving_method>.method{
+		margin:0;
+		font-size:0.7rem;
+	}
+	.group{
+		font-size:0.6rem;
+	}
+	.group>label{
+		margin:0 3px;
+	}
+	.group>input{
+	    padding:3px 30px 3px 5px;
+	}
+	.changebtn>.fa{
+		font-size:1rem;
+	}
+	.driving_slidepanel{
+		padding:2px 0;
+		font-size:0.6rem;
+	}
+	.slidebar{
+		display:block;
+		width:100%;
+		padding:3px 0;
+		border-top:1px solid #888;
+		text-align:center;
+		background-color:#fff;
+		color:#333;
+	}
+	.driving_slidepanel{
+		display:block;
+		width:100%;
+		padding:3px 0;
+		text-align:center;
+		color:#888;
+	}
+	.linepath_title{
+		padding:30px 15px;
+		font-size: 0.8rem;
+	    background-color:#fff;
+		color:#494a4c;
+	}
+	.linepath_title>.linetype{
+		padding:5px 10px;
+		font-size:0.8rem;
+		background-color:#efa811;
+		color:#fff;
+	}
+	.linepath_title>.left_linenum{
+		float:none;
+		margin:10px 0;
+		font-size:1.6rem;
+		background-color:#e4e4e4;
+		color:inherit;
+	}
+	.linepath_title>.right_lineinfo{
+		float:none;
+		width:auto;
+		font-size:0.6rem;
+		margin:15px 0;
+	}
+	.right_lineinfo>.lineprice,
+	.right_lineinfo>.linetime,
+	.right_lineinfo>.linedis{
+		display:inline-block;
+    	margin-right:8px;
+	}
+
+}
+	
