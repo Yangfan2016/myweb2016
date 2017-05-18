@@ -21,7 +21,8 @@ var init=function () {
 	// TESIFY
 	var isCan=false;
 	const DOMAIN='yangfan.cf';
-	isCan=document.location.hostname===DOMAIN?true:false;
+	isCan=true;
+	// isCan=document.location.hostname===DOMAIN?true:false;
 	
 	if (isCan) {
 		// API
