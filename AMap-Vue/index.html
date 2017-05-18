@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>公交线路查询</title>
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="./jq-plugin/jquery.createTip.css" />
+</head>
+<body>
+<!--Vue-->
+<div id="app" class="app" style="width:100%;height:100%;">
+	<!--PAGE-->
+	<!--AMap container-->
+	<div id="mapContainer" class="map_container">
+		<!-- ZOOM IN OUT -->
+		<div class="bottom_zoombar" style="z-index:150;">
+			<div class="zoom zoomin" id="zoomIn" v-on:click="changeMapZoom(1)">+</div>
+			<div class="zoom zoomnum" v-show="!isMobile">{{mapZoom}}</div>
+			<div class="zoom zoomout" id="zoomOut" v-on:click="changeMapZoom(-1)">−</div>
+		</div>
+	</div>
+	<!-- PAGE_INDEX  -->
+	<div class="index_page" v-show="!isShowMainPage">
+		<div class="searchgroup">
+			<div class="main_title">
+				<h1 class="title">迪迪公交<small class="title_small">{{curCity}}</small></h1>
+			</div>
+			<div class="main_searchbox">
+				<span class="inputbox search"><input type="text" class="input-text" v-model="lineNum" id="indexInput_kw" autocomplete="off" placeholder="输入公交线路或站点" /></span><span class="inputbox btn"><input type="button" class="input-button" value="迪迪一下" v-on:click="indexQueryBusLine('#indexInput_kw')" /></span>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="bottom_copyright">
+				<p class="block license">
+	                <span><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img class="mb5" src="./images/creativecommons-cc.svg" height="24"></a></span><br />
+	                <span>本作品采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" class="alert-link">署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+	                。</span><br />
+	                <span>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span>
+				</p>
+				<p>
+					<span>非常感谢</span>
+					<a href="http://lbs.amap.com" target="_blank">高德地图开放平台</a><span>&nbsp; | &nbsp;</span><a href="http://lbs.amap.com/api/javascript-api/summary/" target="_blank">高德地图JS-API开发文档</a>
+				</p>
+				<p class="block">Copyright &copy;2017 Yangfan. All Rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	<!-- PAGE_MAIN -->
+	<div class="main_page" v-show="isShowMainPage">
+		<div class="page_topLeft shadow" id="pageTopLeft">
+		  	<div class="query_linesearch">
+				<input type="text" class="input-text" placeholder="输入公交线路或站点" maxlength="200" autocomplete="off" id="queryLineInput_kw" v-model="lineNum" />
+				<span class="span-btn query" id="queryBtn_bus" v-on:click="queryBusOrBusline" title="查询"><i class="fa fa-search" aria-hidden="true" v-show="!isBusLoading"></i><i class="fa fa-spinner fa-spin fa-fw" v-show="isBusLoading"></i></span>
+				<span class="span-btn" v-show="!isClearBusResult" id="drivingBtn" v-on:click="initBusQuery" title="出行"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+				<span class="span-btn" v-show="isClearBusResult" v-on:click="clearBusResult" title="删除"><i class="fa fa-times" aria-hidden="true"></i></span>
+		  	</div>
+		  	<div class="query_more">
+			 	<div class="more_drivingsearch">
+			 		<ul class="driving_method">
+			  			<li class="method transfer active" data-drive-method="transfer" v-on:click="changeRoutePlan" title="坐公交"><!-- 公交 --><i class="fa fa-bus" aria-hidden="true"></i></li>
+				  		<li class="method driving" data-drive-method="driving" v-on:click="changeRoutePlan" title="开车去"><!-- 驾车 --><i class="fa fa-car" aria-hidden="true"></i></li>
+				  		<li class="method walking" data-drive-method="walking" v-on:click="changeRoutePlan" title="步行去"><!-- 步行 --><i class="fa fa-male" aria-hidden="true"></i></li>
+				  		<li class="method riding" data-drive-method="riding" v-on:click="changeRoutePlan" title="骑车去"><!-- 骑车 --><i class="fa fa-bicycle" aria-hidden="true"></i></li>
+				  		<div class="driving_ul_btngroup">
+				  			<span class="span-btn" id="backBtn" v-on:click="initRouteQuery" title="返回"><i class="fa fa-times" aria-hidden="true"></i></span>
+				 			<span class="span-btn" id="queryBtn_line" v-on:click="queryRoutePlan(driveMethod)" title="查询"><i class="fa fa-search" aria-hidden="true" v-show="!isRouteLoading"></i><i class="fa fa-spinner fa-spin fa-fw" v-show="isRouteLoading"></i></span>
+				 		</div>
+			  		</ul>
+			  		<div class="driving_query" id="drivingQueryPanel">
+			  			<div class="group">
+			  				<label for="kw_start" class="point-start">起点</label>
+			  				<input type="text" placeholder="输入起点或在地图上选点" id="kw_start" autocomplete="off" v-bind:data-point="spoint" v-model="sPosition" v-on:focus="selectPoint='START';isOpenRouteQuery=true;" v-on:keyup="inputPointKeyUp" />
+			  				<div class="clearbtn" title="清空" v-bind:style="{'display':startClearBtn}" v-on:click="clearInput('S')"><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+			  			</div>
+			  			<!--line-->
+			  			<div><!--换行--></div>
+			  			<!--line END-->
+			  			<div class="group">
+			  				<label for="kw_end" class="point-end">终点</label>
+			  				<input type="text" placeholder="输入终点或在地图上选点" id="kw_end" autocomplete="off" v-bind:data-point="epoint" v-model="ePosition" v-on:focus="selectPoint='END';isOpenRouteQuery=true;" v-on:keyup="inputPointKeyUp" />
+			  				<div class="clearbtn" title="清空" v-bind:style="{'display':endClearBtn}" v-on:click="clearInput('E')"><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+			  			</div>
+			  			<div class="changebtn" title="交换起、终点" v-on:click="changeSEpoint"><i class="fa fa-exchange" aria-hidden="true"></i></div>
+			  		</div>
+			  		<div class="driving_slidepanel" id="drivingSlidepanel"><i class="fa fa-bars" aria-hidden="true"></i></div>
+			 	</div>
+		  	</div>
+		  	<div class="query_panels">
+			  	<ul class="panel_suggestlist" v-show="isShowSuggestPanel">
+			  		<li class="suggest_item" v-for="item in suggestList" v-on:click="pushSuggestInput(item.name)"><span class="item_name">{{item.name}}</span><span class="item_district">{{item.district}}</span></li>
+			  	</ul>
+		  		<div class="panel_clearsuggestlist" v-show="isShowSuggestPanel" v-on:click="clearSuggestList"><p>清除提示结果</p></div>
+		  	</div>
+		</div>
+		<div class="page_left">
+			<div class="container-routepanel" id="container_routePanel">
+				<div class="slidebar"><i aria-hidden="true" class="fa fa-bars"></i></div>
+				<div class="route_policy">
+			  		<span class="policy_name" v-bind:style="{width:100/AMap_policy[driveMethod].length+'%'}" v-for="(val,key) in AMap_policy[driveMethod]" v-bind:data-policy="val[2]" v-on:click="routeSearchAndAddActive(driveMethod,val[0],$event)">{{val[1]}}</span>
+			  	</div>
+			  	<div id="routePanel"></div>
+			</div>
+			<div class="container-linepath" id="container_linePath">
+			  	<div class="slidebar"><i aria-hidden="true" class="fa fa-bars"></i></div>
+			  	<div class="linepath" v-for="(item,index) in pathList" v-bind:data-index="index">
+				    <div class="linepath_title clearfix" v-bind:title="item.name" v-on:click="changeBusLine">
+					  	<div class="linetype">{{item.type}}</div>
+				      	<div class="left_linenum"><span class="linenum">{{item.name | filterStr(item)}}</span>{{isBranchline(item.name)}}</div>
+				      	<div class="right_lineinfo">
+				      		<div class="linename">{{item.name}}</div>
+				      		<div class="lineprice">票<span style="visibility:hidden;">字</span>价：<span class="price">{{item.basic_price || 0}}</span> 元</div>
+				      		<div class="linetime">首末班：<span class="time_s">{{formatTime(item.stime)}}</span> - <span class="time_e">{{formatTime(item.etime)}}</span></div>
+				      		<div class="linedis">总<span style="visibility:hidden">字</span>长：<span class="distance">{{(+item.distance).toFixed(2)}}</span> KM</div>
+				      	</div>
+				    </div>
+				    <ul class="linepath_list">	
+				    	<li class="item" v-for="(item_station,index_station) in item.via_stops" v-bind:data-lng="item_station.location.lng" v-bind:data-lat="item_station.location.lat" v-bind:data-content="item_station.name" v-on:click="magnifyMarker"><span class="item_arc"></span>{{item_station.name}}</li>
+				    </ul>
+			  	</div>
+			</div>
+			<div class="container-stationpanel" id="container_stationPanel">
+				<div class="slidebar"><i aria-hidden="true" class="fa fa-bars"></i></div>
+				<ul class="stationlist">
+					<li class="stationitem" v-for="(station,index) in stationInfo" v-bind:data-lng="station.location.lng" v-bind:data-lat="station.location.lat" v-bind:data-content="station.name" v-on:click="magnifyMarker">
+						<p class="item_block title">
+							<span class="s_index">{{+index+1}}</span>&nbsp;&nbsp;<span class="s_name">{{station.name}}</span>
+						</p>
+						<p class="item_block busline">
+							<span class="s_busline" v-for="(line,eq) in station.buslines" v-on:click="queryBusLineByClickSpan">{{line.name | filterLineName}}</span>	
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="page_topcenter" id="page_topCenter">
+			<!-- CONTROLLBAR LAYER-->
+			<div class="top_controllbar" id="topContainer">
+				<div class="btn layer roadnet" id="TileLayer_RoadNet" v-bind:class="{'active':isOpenThisFunc['roadnet']}">路网</div>
+				<div class="btn layer" id="TileLayer_Satellite" v-bind:class="{'active':isOpenThisFunc['satellite']}">卫星</div>
+				<div class="btn layer" id="TileLayer_Traffic" v-bind:class="{'active':isOpenThisFunc['traffic']}">实时路况</div>
+				<div class="btn layer" id="TileLayer" v-bind:class="{'active':isOpenThisFunc['tilelayer']}">谷歌地图</div>
+				<div class="btn mousetool clearmap" id="map_clearMap" v-on:click="clearMapOverlay">清除覆盖物</div>
+				<div class="btn mousetool line" id="mouseTool_measureLine" v-bind:class="{'active':isOpenThisFunc['measureline']}">测距离</div>
+				<div class="btn mousetool area" id="mouseTool_measureArea" v-bind:class="{'active':isOpenThisFunc['measurearea']}">测面积</div>
+				<div class="btn mapoption mapstyle">
+					<span class="title" v-bind:class="{'active':isOpenThisFunc['mapstyle']}" v-on:click="showMapStyleList(!isOpenThisFunc['mapstyle'])">地图样式</span>
+					<ul class="mapstyle_list" id="mapStyleList">
+						<li class="style_item" data-mapstyle="normal" v-bind:class="{'active':mapStyle==='normal'}" v-on:click="changeMapStyle('normal')">默认</li>
+						<li class="style_item" data-mapstyle="light" v-bind:class="{'active':mapStyle==='light'}" v-on:click="changeMapStyle('light')">淡色</li>
+						<li class="style_item" data-mapstyle="fresh" v-bind:class="{'active':mapStyle==='fresh'}" v-on:click="changeMapStyle('fresh')">清新</li>
+						<li class="style_item" data-mapstyle="dark" v-bind:class="{'active':mapStyle==='dark'}" v-on:click="changeMapStyle('dark')">暗黑</li>
+						<li class="style_item" data-mapstyle="blue_night" v-bind:class="{'active':mapStyle==='blue_night'}" v-on:click="changeMapStyle('blue_night')">蓝黑</li>
+					</ul>
+				</div>
+			</div>
+			<!-- WEATHER -->
+			<div class="top_weather clearfix">
+				<div class="w_left" v-on:click="slideAllWeatherPanel">
+					<span class="w_temperature">{{AMap_weather.temperature}}°</span>
+				</div>
+				<div class="w_right" id="weatherDetailPanel">
+					<p class="right_top">
+						<span class="w_weather">{{AMap_weather.weather}}</span>
+						<span class="w_windPower">{{AMap_weather.windPower}}级</span>
+						<span class="w_windDirection">{{AMap_weather.windDirection}}风</span>
+					</p>
+					<p class="right_bottom" title="更多城市" v-on:click="isShowCitySelectPanel=!isShowCitySelectPanel;showCitySelectPanel(isShowCitySelectPanel)">
+						<span class="w_province">{{AMap_weather.province}}</span>
+						<span class="w_city">{{AMap_weather.city}}</span>
+						<span class="w_selectcity"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+					</p>
+				</div>
+				<div class="w_citylist" id="cityListPanel">
+					<div class="citylist_hot">
+						<dl>
+							<dt class="title">热门城市</dt>
+							<dd class="city" v-bind:adcode="city.adcode" v-for="city in Data_hotCity" v-on:click="changeCurCity">{{city.name}}</dd>
+						</dl>
+					</div>
+					<div class="citylist_select">
+						<p class="title">选择城市</p>
+						<select name="" id="selectProvince" showpanel="1" v-on:change="changeCurCity">
+							<option value="000000">--省/直辖市/自治区--</option>
+							<option v-bind:value="province.adcode" v-for="province in Data_provinceList">{{province.name}}</option>
+						</select>
+						<select name="" id="selectCity" v-on:change="changeCurCity">
+							<option v-bind:value="city.adcode" v-for="city in Data_cityList">{{city.name}}</option>
+						</select>
+					</div>
+					<div class="citylist_closebtn" title="关闭" v-on:click="showCitySelectPanel(false)">&times;</div>
+				</div>
+			</div>
+			<!-- MORE FUNC -->
+			<div class="top_morefunc">
+				<div class="morebtn" v-show="!isMobile" v-on:click="showYCAllBusLine"><i aria-hidden="true" class="fa fa-map"></i></div>
+				<div class="allbusline_title" id="allbuslineTitle">榆次区公交线路分布图</div>
+			</div>
+		</div>
+	</div>
+	<!--PAGE END-->
+</div>
+<!--Vue END-->
+<script type="text/javascript" src="./libs/vue.js"></script>
+<script type="text/javascript" src="./libs/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./jq-plugin/jquery.createTip.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
