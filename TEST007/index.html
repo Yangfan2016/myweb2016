@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>公交线路查询</title>
     <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
@@ -30,34 +31,30 @@
 				<h1 class="title">迪迪公交<small class="title_small">{{curCity}}</small></h1>
 			</div>
 			<div class="main_searchbox">
-				<span class="inputbox search"><input type="text" class="input-text" v-model="lineNum" id="indexInput_kw" autocomplete="off" /></span><span class="inputbox btn"><input type="button" class="input-button" value="迪迪一下" v-on:click="indexQueryBusLine('#indexInput_kw')" /></span>
+				<span class="inputbox search"><input type="text" class="input-text" v-model="lineNum" id="indexInput_kw" autocomplete="off" placeholder="输入公交线路或站点" /></span><span class="inputbox btn"><input type="button" class="input-button" value="迪迪一下" v-on:click="indexQueryBusLine('#indexInput_kw')" /></span>
 			</div>
 		</div>
 		<div class="bottom">
 			<div class="bottom_copyright">
 				<p class="block license">
 	                <span><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img class="mb5" src="./images/creativecommons-cc.svg" height="24"></a></span><br />
-	                <span>本作品采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="alert-link">署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+	                <span>本作品采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" class="alert-link">署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	                。</span><br />
-	                <!-- <span>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span> -->
+	                <span>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span>
 				</p>
-				<!-- <p class="block">
-					<span>所有数据均由<a href="http://ditu.amap.com" target="_blank">高德地图</a>提供</span><span>&nbsp; | &nbsp;</span>
-					<span>使用前必读<a href="http://wap.amap.com/doc/serviceitem.html" target="_blank">《高德地图服务条款》</a>、<a href="http://lbs.amap.com/home/terms/" target="_blank" class="" target="">《高德地图JavaScript API 使用条款》</a></span>
-				</p> -->
 				<p>
 					<span>非常感谢</span>
 					<a href="http://lbs.amap.com" target="_blank">高德地图开放平台</a><span>&nbsp; | &nbsp;</span><a href="http://lbs.amap.com/api/javascript-api/summary/" target="_blank">高德地图JS-API开发文档</a>
 				</p>
-				<p class="block">Copyright &copy;2017 Yangfan All Rights reserved</p>
+				<p class="block">Copyright &copy;2017 Yangfan. All Rights reserved.</p>
 			</div>
 		</div>
 	</div>
 	<!-- PAGE_MAIN -->
 	<div class="main_page" v-show="isShowMainPage">
-		<div class="page_topLeft">
+		<div class="page_topLeft shadow" id="pageTopLeft">
 		  	<div class="query_linesearch">
-				<input type="text" class="input-text" placeholder="输入公交线路（901）" maxlength="200" autocomplete="off" id="queryLineInput_kw" v-model="lineNum" />
+				<input type="text" class="input-text" placeholder="输入公交线路或站点" maxlength="200" autocomplete="off" id="queryLineInput_kw" v-model="lineNum" />
 				<span class="span-btn query" id="queryBtn_bus" v-on:click="queryBusOrBusline" title="查询"><i class="fa fa-search" aria-hidden="true" v-show="!isBusLoading"></i><i class="fa fa-spinner fa-spin fa-fw" v-show="isBusLoading"></i></span>
 				<span class="span-btn" v-show="!isClearBusResult" id="drivingBtn" v-on:click="initBusQuery" title="出行"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
 				<span class="span-btn" v-show="isClearBusResult" v-on:click="clearBusResult" title="删除"><i class="fa fa-times" aria-hidden="true"></i></span>
@@ -200,11 +197,10 @@
 			</div>
 			<!-- MORE FUNC -->
 			<div class="top_morefunc">
-				<div class="morebtn" v-on:click="showYCAllBusLine"><i aria-hidden="true" class="fa fa-map"></i></div>
+				<div class="morebtn" v-show="!isMobile" v-on:click="showYCAllBusLine"><i aria-hidden="true" class="fa fa-map"></i></div>
 				<div class="allbusline_title" id="allbuslineTitle">榆次区公交线路分布图</div>
 			</div>
 		</div>
-		<!-- <div class="page_bottomRight">zoom</div> -->
 	</div>
 	<!--PAGE END-->
 </div>

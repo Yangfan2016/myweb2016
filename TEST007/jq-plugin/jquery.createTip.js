@@ -2,20 +2,23 @@
   * Theme: createTip
   * Author: Who am I
   * dev: jquery
-  * usage: $(el).createTip("提示内容","info | warn | ok | error");
+  * usage:1.  $(el).createTip("提示内容","info | warn | ok | error");
+  		  2.  $(el).createAlert(html_head,html_body,callback);
+  * memo: 兼容移动端 compatible Moblie
   */
 ;$.fn.extend({
 	"createTip":function (content,type) {
 		var me=this;
+		var limit=6;
 
 		// 把容器放入页面中
 		if ($(".g_tipcontainer").length===0) {
-			var html=`<div class="g_tipcontainer" style="position: fixed;top: 0;left: 50%;-webkit-transform: translate(-50%,0);transform: translate(-50%,0);"></div>`;
+			var html=`<div class="g_tipcontainer"></div>`;
 			var parent=$(html);
 			$(me).append(parent);
 		}
 		// 限制提示框数量
-		if ($(".g_tipbox").length<=6) {
+		if ($(".g_tipbox").length<limit) {
 			var tipType={
 				"info":'<span class="tip_type info"><i class="fa fa-info" aria-hidden="true"></i></span>',
 				"ok":'<span class="tip_type ok"><i class="fa fa-check" aria-hidden="true"></i></span>',

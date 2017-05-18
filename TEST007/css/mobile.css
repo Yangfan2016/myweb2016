@@ -31,6 +31,8 @@
 	}
 	.index_page>.bottom{
 		bottom:5px;
+		opacity:0.35;
+		z-index:-1;
 	}
 	/*mainpage css*/
 	.page_topLeft{
@@ -62,6 +64,9 @@
 	    border-radius:0;
 	    background-color:#fff;
 	    z-index:200;
+	}
+	.linepath_list{
+		background-color:rgba(0,0,0,0.53);
 	}
 	.top_weather{
 		top:15%;
@@ -115,24 +120,33 @@
 		padding:0;
 	}
 	.driving_method>.method{
-		margin:0;
 		font-size:0.7rem;
+    	margin-left:5px;
+	}
+	.driving_ul_btngroup>.span-btn{
+		width:24px;
+		font-size:0.8rem;
 	}
 	.group{
+		width:60%;
 		font-size:0.6rem;
 	}
 	.group>label{
-		margin:0 3px;
+		display:none;
+		/*margin:0 3px;*/
 	}
 	.group>input{
-	    padding:3px 30px 3px 5px;
+		width:100%;
+		border-bottom:1px solid;
+    	border-radius:0;
+    	background-color:transparent;
+	    /*padding:3px 30px 3px 5px;*/
+	}
+	.group>.clearbtn{
+		right:-30px;
 	}
 	.changebtn>.fa{
-		font-size:1rem;
-	}
-	.driving_slidepanel{
-		padding:2px 0;
-		font-size:0.6rem;
+		font-size:1.5rem;
 	}
 	.slidebar{
 		display:block;
@@ -146,7 +160,7 @@
 	.driving_slidepanel{
 		display:block;
 		width:100%;
-		padding:3px 0;
+		font-size:0.6rem;
 		text-align:center;
 		color:#888;
 	}

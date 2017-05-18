@@ -4,7 +4,7 @@
   * Dev: Vuejs-2.0 | jQuery-3.1.1
   * MAPAPI: AMap (http://lbs.amap.com) v1.3
   * Version: 1.0.0
-  * LastModified: 2017-4-25 14:20
+  * LastModified: 2017-5-10 11:07
   *
   **/
 
@@ -56,6 +56,7 @@ var vm=new Vue({
 		curCity:"北京市",
 		curAdcode:"110100",
 		curAddress:"",
+		geoAddress:"",
 		driveMethod:"transfer",
 		sPosition:"",
 		ePosition:"",
@@ -350,7 +351,7 @@ var vm=new Vue({
 					icon:"http://webapi.amap.com/theme/v1.3/markers/n/end.png",
 					zIndex:10
 				});
-			} 
+			}
 				
 			// 适应视图
 			map.setFitView();
@@ -360,7 +361,6 @@ var vm=new Vue({
 			var v_this=this;
 			var map=v_this.map;
 
-			
 			//绘制乘车的路线
 			var polyline=new AMap.Polyline({
 				map:map,
@@ -437,28 +437,36 @@ var vm=new Vue({
 				});
 			});
 		},
-		// 收缩地图容器
+		// 收缩地图容器 PC端
 		shrinkMapContainer:function (flag) {
-			var $mapContainer=$("#mapContainer");
-			var flag_left=parseInt($mapContainer.css("left"));
-
-			if (!!flag) {
-				if (flag_left!==450) {
-					$mapContainer.animate({
-						"top":"0",
-	    				"left":"450px",
-	    				"width":($("body").width()-450)+"px"
-					},300);
+			var v_this=this;
+			// PC端
+			if (!v_this.isMobile) {
+				var $mapContainer=$("#mapContainer");
+				var flag_left=parseInt($mapContainer.css("left"));
+				var $pageTopLeft=$("#pageTopLeft");
+				if (!!flag) {
+					// 收缩
+					if (flag_left!==450) {
+						$mapContainer.animate({
+							"top":"0",
+		    				"left":"450px",
+		    				"width":($("body").width()-450)+"px"
+						},300);
+						$pageTopLeft.removeClass("shadow");
+					}
+				} else {
+					// 恢复
+					if (flag_left!==0) {
+						$mapContainer.animate({
+							"top":"0",
+		    				"left":"0",
+		    				"width":"100%"
+						},300);
+						$pageTopLeft.addClass("shadow");
+					}	
 				}
-			} else {
-				if (flag_left!==0) {
-					$mapContainer.animate({
-						"top":"0",
-	    				"left":"0",
-	    				"width":"100%"
-					},300);
-				}	
-			}
+			}	
 		},
 		// 公交数据处理，生成默认线路
 	    busDataProcess:function (data,selectLine) {
@@ -835,6 +843,8 @@ var vm=new Vue({
 
 									if (status==="complete") {
 										console.log(result);
+										// 显示出行路径面板
+										v_this.showRoutePanel(true);
 									}
 								});
 							});
@@ -852,6 +862,8 @@ var vm=new Vue({
 
 									if (status==="complete") {
 										console.log(result);
+										// 显示出行路径面板
+										v_this.showRoutePanel(true);
 									}
 								});
 							});
@@ -872,6 +884,8 @@ var vm=new Vue({
 
 									if (status==="complete") {
 										console.log(result);
+										// 显示出行路径面板
+										v_this.showRoutePanel(true);
 									}
 								});
 							});
@@ -890,6 +904,8 @@ var vm=new Vue({
 
 									if (status==="complete") {
 										console.log(result);
+										// 显示出行路径面板
+										v_this.showRoutePanel(true);
 									}
 								});
 							});
@@ -900,9 +916,6 @@ var vm=new Vue({
 							v_this.isRouteLoading=false;
 							break;
 					}
-					
-					// 显示出行路径面板
-					v_this.showRoutePanel(true);
 
 				}
 			}
@@ -959,13 +972,10 @@ var vm=new Vue({
 				v_this.routeSearch(v_this.driveMethod);
 			}
 		},
-		// 初始化 公交查询面板
-		initBusQuery:function () {
+		// 收起公交查询面板，并展开路径规划查询面板
+		showRouteQueryAndhideBusQuery:function () {
 			var v_this=this;
-			var map=v_this.map;
 
-			var $drivingBtn=$("#drivingBtn");
-			var $backBtn=$("#backBtn");
 			var $query_linesearch=$(".query_linesearch");
 			var $query_more=$(".query_more");
 			// 收起公交查询面板，并展开路径规划查询面板
@@ -976,6 +986,16 @@ var vm=new Vue({
 			v_this.showBusPanel(false);
 			// 收起公交站点结果面板
 			v_this.showBusStationPanel(false);
+		},
+		// 初始化 公交查询面板
+		initBusQuery:function () {
+			var v_this=this;
+			var map=v_this.map;
+
+			var $drivingBtn=$("#drivingBtn");
+			var $backBtn=$("#backBtn");
+			// 收起公交查询面板，并展开路径规划查询面板
+			v_this.showRouteQueryAndhideBusQuery();
 			// 清除旧标记
 			v_this.old_curCity="";
 			v_this.old_lineNum="";
@@ -1277,6 +1297,24 @@ var vm=new Vue({
 			this.flag=!this.flag;
 
 		},
+		// 地理编码转换
+		transferAddress:function (lnglat,callback) {
+			var v_this=this;
+
+			AMap.plugin("AMap.Geocoder",function () {
+				var geocoder=new AMap.Geocoder({
+					city:v_this.curCity,
+					extensions:"all"
+				});
+
+				geocoder.getAddress(lnglat,function (status,result) {
+					if (status==="complete") {
+						v_this.geoAddress=result.regeocode.formattedAddress;
+						callback();
+					}
+				});
+			});
+		},
 		// test
 		indexQueryBusLine:function (selector) {
 			var v_this=this;
@@ -1299,27 +1337,21 @@ var vm=new Vue({
 
 			window.G_fun={
 				// 设置终点
-				setEndPoint:function (str) {
+				goThere:function (str) {
 					// 收起公交查询面板，并展开路径规划查询面板
-					var $query_linesearch=$(".query_linesearch");
-					var $query_more=$(".query_more");
-					$query_linesearch.slideUp(300,function () {
-						$query_more.slideDown(300);
-					});
-					// 隐藏公交线路结果面板
-					v_this.showBusPanel(false);
-					// 隐藏公交站点结果面板
-					v_this.showBusStationPanel(false);
-					// 开启路径查询
-					v_this.isOpenRouteQuery=true;
+					v_this.showRouteQueryAndhideBusQuery();
+
+					// 设置起点 我的位置
+					v_this.sPosition=v_this.curAddress.substring(+v_this.curAddress.indexOf("市")+1) || v_this.curAddress || "";
 					// 设置终点
 					v_this.ePosition=str;
-					// 设置起点 我的位置
-					v_this.sPosition=v_this.curAddress || "定位失败";
-					// 查询路径
+					
 					// loading
 					v_this.isRouteLoading=true;
+					// 查询路径
 					v_this.routeSearch(v_this.driveMethod);
+
+
 				},
 				// 判断是否是移动端 width<=768px
 				judgeMobile:function () {
@@ -1431,6 +1463,7 @@ var vm=new Vue({
 
 		    //定位成功回调
 		    function onComplete(data) {
+		    	console.log(data);
 		    	var address=data.addressComponent;
 		    	// 提示框
 		    	$("body").createTip("定位城市："+address.province+address.city,"info");
@@ -1663,7 +1696,7 @@ var vm=new Vue({
 
 			map.on("hotspotclick",function (result) {
 				// 显示POI信息
-				var content=`<div class="infowindow-poi"><span class="poi-name">`+result.name+`</span><span class="poi-btn" onclick="G_fun.setEndPoint('`+result.name+`')">到这去</span></div>`;
+				var content=`<div class="infowindow-poi"><span class="poi-name">`+result.name+`</span><span class="poi-btn" onclick="G_fun.goThere('`+result.name+`')">到这去</span></div>`;
 				var infoWindow=new AMap.InfoWindow({
 					position:result.lnglat,
 					isCustom:true,
@@ -1672,27 +1705,67 @@ var vm=new Vue({
 					offset:new AMap.Pixel(0,-15)
 				});
 				infoWindow.open(map);
+
+				// ------------当前 禁用自动查询路径功能-----------------
 				// 判断是否允许选点 查询路径
-				if (!!v_this.isOpenRouteQuery) {
-					// 地图选点
-					if (v_this.selectPoint==="START") {
-						v_this.sPosition=result.name;
-						v_this.startClearBtn="block";
-					} else if (v_this.selectPoint==="END") {
-						v_this.ePosition=result.name;
-						v_this.endClearBtn="block";
-					} else {
-						v_this.sPosition="";
-						v_this.ePosition="";
-					}
-					// 判断输入框非空
-					if (v_this.sPosition && v_this.ePosition) {
-						// loading 样式
-						v_this.isRouteLoading=true;
-						// 查询路径
-						v_this.routeSearch(v_this.driveMethod);
-					}
-				}
+				// if (!!v_this.isOpenRouteQuery) {
+				// 	// 地图选点
+				// 	if (v_this.selectPoint==="START") {
+				// 		v_this.sPosition=result.name;
+				// 		v_this.startClearBtn="block";
+				// 	} else if (v_this.selectPoint==="END") {
+				// 		v_this.ePosition=result.name;
+				// 		v_this.endClearBtn="block";
+				// 	} else {
+				// 		v_this.sPosition="";
+				// 		v_this.ePosition="";
+				// 	}
+				// 	自动查询
+				// 	判断输入框非空
+				// 	if (v_this.sPosition && v_this.ePosition) {
+				// 		// loading 样式
+				// 		v_this.isRouteLoading=true;
+				// 		// 查询路径
+				// 		v_this.routeSearch(v_this.driveMethod);
+				// 	}
+				// }
+			});
+
+			// 右键菜单
+			map.on("rightclick",function (ev) {
+				var lnglat=ev.lnglat;
+				// 信息窗体
+				var infoWindow=new AMap.InfoWindow({
+					position:ev.lnglat,
+					isCustom:true,
+					content:`<div class="contextmenu"><p class="setspoint" onclick="setSpoint()">设置为起点</p><p class="setepoint" onclick="setEpoint()">设置为终点</p></div>`,
+					closeWhenClickMap:true,
+					offset:new AMap.Pixel(100,0)
+				});
+				infoWindow.open(map);
+				// 设置起点
+				window.setSpoint=function () {
+					// 收起公交查询面板，并展开路径规划查询面板
+					v_this.showRouteQueryAndhideBusQuery();
+					// 转换地理编码
+					v_this.transferAddress(lnglat,function () {
+						v_this.sPosition=v_this.geoAddress;
+					});
+					// 关闭信息窗体
+					infoWindow.close();
+				};
+				// 设置终点
+				window.setEpoint=function () {
+					// 收起公交查询面板，并展开路径规划查询面板
+					v_this.showRouteQueryAndhideBusQuery();
+					// 转换地理编码
+					v_this.transferAddress(lnglat,function () {
+						v_this.ePosition=v_this.geoAddress;
+					});
+					// 关闭信息窗体
+					infoWindow.close();
+				};
+				
 			});
 
 			// ============================事件 地图缩放 ================================

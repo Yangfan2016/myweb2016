@@ -1,9 +1,16 @@
 /* Theme: createTip.css 
    dev: font-awesome.css
+   memo: 兼容移动端 compatible Moblie
 */
 
 /* TIP Component */
 @charset "UTF-8";
+.g_tipcontainer{
+	position:fixed;
+	top:0;left:50%;
+	-webkit-transform:translate(-50%,0);
+	transform:translate(-50%,0);
+}
 .g_tipbox{
 	padding:10px 15px;
     background-color:#026;
@@ -112,18 +119,65 @@
 
 /* Mobile <=768px */
 @media screen and (max-device-width:768px) {
+	/* ALERT Component */
 	.g_alertbox>.box_main{
 		width:80%;
-		padding:20px 0;
+		padding:0;
+	}
+	.g_alertbox>.box_main>.main_closebtn{
+		display:none;
 	}
 	.g_alertbox>.box_main>.main_head{
-		font-size:0.8rem;
+		font-size:0.9rem;
+	}
+	.g_alertbox>.box_main>.main_foot{
+		border-top:1px solid #ccc;
+		overflow:hidden;
 	}
 	.g_alertbox>.box_main>.main_foot>.foot_btn{
-		width:30%;
+		margin:0;
+		float:left;
+		width:50%;
+		border:none;
+	}
+	.g_alertbox>.box_main>.main_foot>.foot_btn.no,
+	.g_alertbox>.box_main>.main_foot>.foot_btn.yes,
+	.g_alertbox>.box_main>.main_foot>.foot_btn.no:hover,
+	.g_alertbox>.box_main>.main_foot>.foot_btn.yes:hover{
+		background-color:transparent;
+		color:#666;
+	}
+	.g_alertbox>.box_main>.main_foot>.foot_btn.no{
+		border-right:1px solid #ccc;
+		box-sizing:border-box;
+	}
+
+	/* TIP Component */
+	.g_tipcontainer{
+		position:fixed;
+		top:initial;left:50%;
+    	bottom:20px;
+    	width:100%;
+    	-webkit-transform:translate(-50%,0);
+    	transform:translate(-50%,0);
+	}
+	.tip_type{
+		display:none;
 	}
 	.g_tipbox{
-		padding:5px 8px;
-	    font-size:14px;
+		position:fixed;
+		bottom:20px;
+		left:50%;
+		padding:8px 15px;
+		-webkit-transform:translate(-50%,0);
+		transform:translate(-50%,0);
+    	font-size:12px;
+    	border-radius:0;
+	}
+	.g_tipbox.info,
+	.g_tipbox.ok,
+	.g_tipbox.warn,
+	.g_tipbox.error{
+		background-color:rgba(0,0,0,0.59);
 	}
 }
