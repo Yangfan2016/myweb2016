@@ -20,7 +20,7 @@ var init=function () {
 (function () {
 	// TESIFY
 	var isCan=false;
-	const DOMAIN='192.168.2.118';
+	const DOMAIN='yangfan.cf';
 	isCan=document.location.hostname===DOMAIN?true:false;
 	
 	if (isCan) {
