@@ -1241,7 +1241,7 @@ var vm=new Vue({
 				if (!localStorage.getItem("bounds")) {
 					console.log("网络行政边界数据");
 					$.ajax({
-						url:"../AMap-Vue/json/boundaries.json",
+						url:"../TEST007/json/boundaries.json",
 						method:"GET",
 						success:function (xrh,status,result) {
 							var bounds=result.responseJSON.boundaries;
@@ -1260,7 +1260,7 @@ var vm=new Vue({
 				if (!localStorage.getItem("busLineData")) {
 					console.info("网络所有公交线路数据");
 					$.ajax({
-						url:"../AMap-Vue/json/busline.json",
+						url:"../../json/busline.json",
 						method:"GET",
 						success:function (xhr,status,result) {
 							var busLineData=result.responseJSON;
