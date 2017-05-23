@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <title>json文件转geojson文件</title>
+    <script type="text/javascript" src="./libs/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+<div style="width:900px;height:300px;margin:50px auto;">
+  <p style="font-size:36px;color:#f20265;text-align:center;">json文件转geojson文件</p>
+  <input id="filename" style="display:block;border:1px solid #888; padding:5px 10px;margin:10px 0;" type="text" placeholder="请输入文件名（英文，不要加文件后缀）" />
+  <select name="" id="type">
+    <option value="LineString">LineString</option>
+    <option value="Polygon">Polygon</option>
+  </select>
+  <textarea id="json" style="width:100%;height:100%;resize:none;" name="json" id="" cols="30" rows="10" placeholder="请输入JSON格式"></textarea>
+  <button id="changeBtn" style="display:block;padding:10px 30px;border:none;background-color:#080;color:#fff;box-shadow:2px 4px 15px 3px rgba(0,0,0,0.5);cursor:pointer;">转换</button>
+  <p id="status" style="font-size:16px;color:#333;"></p>
+</div>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
