@@ -643,8 +643,6 @@ ul,ol{list-style:none;}
 	.photolist .photoitem:hover{
 		-webkit-filter:blur(0px);
     	filter:blur(0px);
-    	-webkit-transform:scale(1.2);
-    	transform:scale(1.2);
     	box-shadow:0 0 5px rgba(0,0,0,0.8);
     	border:none;
     	z-index:2;
