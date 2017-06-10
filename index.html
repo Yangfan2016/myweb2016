@@ -3,31 +3,33 @@
 <head>
    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
    <meta charset="UTF-8" />
-   <title>主页</title>
+   <title>Yangfan</title>
+   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
    <link rel="stylesheet" href="./css/font-awesome.min.css" />
    <link rel="stylesheet" href="./css/index.css" />
-   <script type="text/javascript" src="./js/zepto-1.2.0.min.js"></script>
+   <!-- <script type="text/javascript" src="./js/zepto-1.2.0.min.js"></script>
 	  <script type="text/javascript" src="./js/zepto.touch.js"></script>
 	  <script type="text/javascript" src="./js/zepto-fx.js"></script>
-	  <script type="text/javascript" src="./js/zepto-fx_methods.js"></script>
+	  <script type="text/javascript" src="./js/zepto-fx_methods.js"></script> -->
+   <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
    <!-- page_main -->
    <div class="page_main" id="pageMain">
       <div class="main_nav" id="mainNav">
          <div class="nav_pic" id="navPic"></div>
-         <div class="nav_item" data-scroll-to="-1">前端</div>
-         <div class="nav_item" data-scroll-to="-1">作品</div>
-         <div class="nav_item" data-scroll-to="-1">音乐</div>
-         <div class="nav_item" data-scroll-to="-1">摄影</div>
-         <div class="nav_item" data-scroll-to="-1">关于</div>
+         <div class="nav_item" data-scroll-to="-1"><a href="">前端</a></div>
+         <div class="nav_item" data-scroll-to="-1"><a href="">作品</a></div>
+         <div class="nav_item" data-scroll-to="-1"><a href="">音乐</a></div>
+         <div class="nav_item" data-scroll-to="-1"><a href="">摄影</a></div>
+         <div class="nav_item" data-scroll-to="-1"><a href="">关于</a></div>
       </div>
       <div class="main_foot">
          <p>Copyright &copy; 2016-2099 <a href="https://github.com/Yangfan2016" target="_blank">Yangfan</a>. All Rights Reserved</p>
          <p>Thank <a href="https://github.com" target="_blank">GitHub</a> provided by the page hosting service</p>
       </div>
       <div class="main_body" id="mainBody">
-         <div class="body_hello">
+         <div class="body_hello" id="mainBody_hello">
             <div class="hello_pic"></div>
             <!-- mobile -->
             <div class="intro mobile">
@@ -45,7 +47,7 @@
                </div>
                <div class="intro_info">
                   <p>你好世界，我是 Yangfan ，这里是我的个人小站，欢迎来访问</p>
-                  <p>前端小白一枚，非计算机专业出身，喜欢造轮子，喜欢接触新鲜事物，喜欢Codeing，喜欢音乐。</p>
+                  <p>前端小白一枚，GIS专业出身，喜欢造轮子，喜欢接触新鲜事物，喜欢Code，喜欢音乐。</p>
                   <p>如果你也是这样的人，来聊我呀</p>
                </div>
                <div class="intro_link">
@@ -56,11 +58,11 @@
                   <a href="javascript:void(0);" target="_blank" class="linkicon"><img src="./images/Facebook.png" alt=""></a>
                </div>
                <div class="intro_nav" id="mainNav_PC">
-                  <a href="javascript:void(0);" class="nav_btn" data-scroll-to="-1">前端</a>
-                  <a href="javascript:void(0);" class="nav_btn" data-scroll-to="-1">作品</a>
-                  <a href="javascript:void(0);" class="nav_btn" data-scroll-to="-1">音乐</a>
-                  <a href="javascript:void(0);" class="nav_btn" data-scroll-to="-1">摄影</a>
-                  <a href="javascript:void(0);" class="nav_btn" data-scroll-to="-1">关于</a>
+                  <a href="#href_fe" class="nav_btn" data-scroll-to="-1">介绍</a>
+                  <a href="#href_works" class="nav_btn" data-scroll-to="-1">作品</a>
+                  <a href="#href_music" class="nav_btn" data-scroll-to="-1">技能</a>
+                  <a href="#href_photos" class="nav_btn" data-scroll-to="-1">规划</a>
+                  <a href="#href_abouts" class="nav_btn" data-scroll-to="-1">关于</a>
                </div>
                <div class="intro_foot">
                   <p>Copyright &copy; 2016-2099 <a href="https://github.com/Yangfan2016" target="_blank">Yangfan</a>. All Rights Reserved</p>
@@ -70,25 +72,19 @@
             <div class="slidemore"><i class="fa fa-angle-double-right"></i></div>
          </div>
          <div class="body_module body_frontend">
-            <div class="title">
-             <p>前端<br /> The Front End</p>
+            <div class="title" id="href_fe">
+             <p>我<br /> The Person</p>
             </div>
             <div class="text">
-               <h3>What's the FrontEnd ?</h3>
-               <p>前端对于网站来说，通常是指，网站的前台部分包括网站的表现层和结构层。因此前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，现在最新的高级版本HTML5、CSS3，以及SVG等。</p>
-               <p>HTML、CSS、JavaScript 这三个是前端开发中最基本也是最必须的三个技能。前端的开发中，在页面的布局时， HTML将元素进行定义，CSS对展示的元素进行定位，再通过JavaScript实现相应的效果和交互。虽然表面看起来很简单，但这里面需要掌握的东西绝对不会少。在进行开发前，需要对这些概念弄清楚、弄明白，这样在开发的过程中才会得心应手。</p>
-               <h3>Why did you have to learn to it ?</h3>
-               <p>前端开发入门门槛低,学习曲线跟服务端开发语言先慢后快相比,趋势是先快后慢。注:后慢是因为后期的学习已经超过前端开发的范围,比如SEO,服务器端知识,HTTP协议,这些学习本身就是慢的过程。<br />对于想短期内进入互联网行业,想有个不错的钱景和前景,跟后端开发相比,前端开发是个不错的切入点。</p>
-   			   <p>由于互联网行业的极速扩张,各大公司对前端工程师的需求非常旺盛,自然钱景旺旺。加上HTML5规范的最终定稿,必定引起web的热潮。NodeJS在服务器端的延伸也使JS大放光彩。反观后端工程师,培训机构输出一批批Java,PHP工程师,即使跟不上企业的需求,也基本能满足后端工程师市场的需求(不过,高端的,有经验的后端工程师是非常抢手的)。刚出道的前端工程师钱景和前景远好于后端工程师。</p>
-               <p>用3年时间学习前端开发,多数同学都能够成为一个优秀的前端开发工程师,同样,用3年时间学习后端开发,多数同学只能算是入门。前端开发人员需要掌握HTML,CSS,JS,对于其他框架的学习也只是熟悉下框架的用法。这三种语言本身也很简单,很容易上手。对于后台开发人员来说,开发语言的多样化,技术框架的选择,平台性能的了解都是需要经验积累的。比如java,你需要精通Java语言,熟悉jdk源码,熟悉JVM性能优化,熟悉SSH框架,熟悉Mysql,熟悉各种技术,这些都不是短时间就能上手的。</p>
-               <h3>How did we learn the Front End ?</h3>
-               <p>前端基础学习路线思维导图</p>
-               <div class="img_swdt"><img src="./images/swdt001.jpg" alt=""></div>
+               <!-- <h3>What's the FrontEnd ?</h3> -->
+               <p>张恒（Yangfan），23岁，坐标太原，野生前端开发一枚。前端小白一枚，GIS专业，喜欢造轮子，喜欢接触新鲜事物，喜欢Code，喜欢音乐。</p>
+               <p>近一年的实习经验，写过响应式页面，移动端页面，pc端页面。涉及音乐、视频、地图、天气等。</p>
+               <div style="width:100%;"><img src="./images/skills.png" alt="skills" style="width:100%;height:auto;" /></div>
             </div>
          </div>
          <div class="body_module body_works">
-            <div class="title">
-             <p>作品<br /> My Personal Works</p>
+            <div class="title" id="href_works">
+             <p>作品<br /> Personal Works</p>
             </div>
             <div class="works">
             	<div class="works_class">PC端网页设计制作</div>
@@ -156,7 +152,7 @@
             </div>
          </div>   
          <div class="body_module body_music clearfix">
-            <div class="title">
+            <div class="title" id="href_music">
              <p>音乐<br /> Music</p>
             </div>
             <div class="musicbox" id="musicPlayer">
@@ -191,7 +187,7 @@
             <p style="clear:both;padding:15px 0;text-align:center;color:#ccc;">音源：<a href="http://music.163.com/" target="_blank">网易云音乐</a></p>
          </div>
          <div class="body_module body_photography">
-            <div class="title">
+            <div class="title" id="href_photos">
              <p>摄影<br /> Photography Works</p>
             </div>
             <div class="photolist">
@@ -206,7 +202,7 @@
             </div>
          </div>
          <div class="body_module body_abouts">
-            <div class="title">
+            <div class="title" id="href_abouts">
              <p>关于<br /> Date With Me</p>
             </div>
             <div class="about">
@@ -218,7 +214,7 @@
             	<div class="about_contact">
             		<h3>Contact</h3>
             		<p><span class="left">Email: </span><a href="mailto:yangfan201601@126.com">yangfan201601#126.com</a> ("#" -> "@")</p>
-            		<p><span class="left">Blog: </span><a href="http://blog.sina.com.cn/yangfan1601" target="_blank">http://blog.sina.com.cn/yangfan1601</a></p>
+            		<p><span class="left">Blog: </span><a href="http://yangfan.ga" target="_blank">http://yangfan.ga</a></p>
             		<p><span class="left">Github: </span><a href="https://github.com/Yangfan2016" target="_blank">https://github.com/Yangfan2016</a></p>
             	</div>
             	<div class="about_morelink">
@@ -233,9 +229,9 @@
             	</div>
                <div class="about_website">
                   <h3>Website info</h3>
-                  <p>Version: v1.0.0</p>
+                  <p>Version: v1.0.1</p>
                   <p>Author: Yangfan</p>
-                  <p>Last Modify: 2017-01-31</p>
+                  <p>Last Modify: 2017-06-09</p>
                </div>
             	<div class="about_comment" id="aboutComment">
             		<h3>Comments</h3>
@@ -265,6 +261,8 @@
    <div class="backtop" id="backTop"><i class="fa fa-chevron-up fa-2x" aria-hidden="true"></i></div>
    <!-- backscreen -->
    <div class="backscreen" id="backScreen"></div>
+   <!-- TEST -->
+   
 <!-- scripts -->
 <script src="./js/index.js" type="text/javascript"></script>
 <script type="text/javascript" src="./js/createjsonp.js"></script>

@@ -6,54 +6,65 @@
 
 /**
   * @Param: end,[duration],[callback]
-  *
+  * @DeBug: timer
   */
-function self_scrollTo() {
-    var start=-1,
-        end=Math.round(arguments[0]),
-        duration=arguments[1] || 500,
-        speed=0,
-        callback=arguments[2] || null,
-        flag=1,
-        timer=null;
+// function self_scrollTo() {
+//     var start=-1,
+//         end=Math.round(arguments[0]),
+//         duration=arguments[1] || 500,
+//         speed=0,
+//         callback=arguments[2] || null,
+//         flag=1;
+//     var _this=this;
 
-    clearInterval(timer);
-    start=document.documentElement.scrollTop || document.body.scrollTop;
-    flag=(end-start)>0?flag:-flag;
+//     clearInterval(_this.timer);
+//     start=document.documentElement.scrollTop || document.body.scrollTop;
+//     flag=(end-start)>0?flag:-flag;
     
-    timer=setInterval(function () {
-        if (start===end) {
-            clearInterval(timer);
-            console.info("======done======");
-            callback && callback();
-        } else {
-            start=document.documentElement.scrollTop || document.body.scrollTop;
-            speed=(end-start)/duration*80;
-            speed=Math.abs(speed)<=5?flag:speed;
-            speed=(end-start)>0?Math.floor(speed):Math.ceil(speed);
-            document.documentElement.scrollTop+=speed;
-            document.body.scrollTop+=speed;
-            console.log(speed,start);
-        }
-    },30);
+//     _this.timer=setInterval(function () {
+//         if (start===end) {
+//             clearInterval(_this.timer);
+//             console.info("======done======");
+//             callback && callback();
+//         } else {
+//             start=document.documentElement.scrollTop || document.body.scrollTop;
+//             speed=(end-start)/duration*80;
+//             speed=Math.abs(speed)<=5?flag:speed;
+//             speed=(end-start)>0?Math.floor(speed):Math.ceil(speed);
+//             document.documentElement.scrollTop+=speed;
+//             document.body.scrollTop+=speed;
+//             console.log(speed,start);
+//         }
+//     },30);
     
-}
+// }
+
+var self_scrollTo=(top,duration,callback)=>{
+    $('html,body').animate({
+        scrollTop:Math.round(top)
+    },duration,function () {
+        callback && callback();
+    });
+};
+
 
 $(function () {
     var timer=null;
     var hideNav=function () {
         $("#mainNav").animate({
             "left":"-81px"
-        },500,"ease-out");
+        },500);
         $("#pageMain").animate({
             "left":"0"
-        },500,"ease-out");
+        },500);
         $("#backScreen").css({
             "display":"none"
         });
     };
     // init
-    self_scrollTo(0,200,function () {
+    self_scrollTo(0,500,function () {
+        // init
+        window.location.hash='';
         // 存放导航模块位置信息
         $(".body_module").each(function (index,item) {
             localStorage.setItem(index,item.getBoundingClientRect().top);
@@ -68,13 +79,24 @@ $(function () {
         });
     });
     // show nav
-    $("#mainBody").on("swipeRight",function () {
+    // $("#mainBody").on("swipeRight",function () {
+    //     $("#mainNav").animate({
+    //         "left":"0"
+    //     },500,"ease-out");
+    //     $("#pageMain").animate({
+    //         "left":"81px"
+    //     },500,"ease-out");
+    //     $("#backScreen").css({
+    //         "display":"block"
+    //     });
+    // });
+    $(".slidemore").on("touchstart",function () {
         $("#mainNav").animate({
             "left":"0"
-        },500,"ease-out");
+        },500);
         $("#pageMain").animate({
             "left":"81px"
-        },500,"ease-out");
+        },500);
         $("#backScreen").css({
             "display":"block"
         });
@@ -86,7 +108,7 @@ $(function () {
         }
     });
     // show the button of back to top
-    $("#pageMain").on("touchmove mousewheel",function () {
+    $("#pageMain").on("mousewheel touchmove",function () {
         clearTimeout(timer);
         $("#backTop").css("opacity",1);
         timer=setTimeout(function () {
@@ -108,7 +130,11 @@ $(function () {
     });
     // PC
     $("#mainNav_PC").on("click",".nav_btn",function () {
-        self_scrollTo(this.dataset.scrollTo,200);
+        self_scrollTo(this.dataset.scrollTo,800);
+        
     });
     
+
+
+
 });
