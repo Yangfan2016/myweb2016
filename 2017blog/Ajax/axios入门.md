@@ -2,9 +2,8 @@
 
 
 
-
-
 ![001](https://devdojo.com/media/images/June2017/vue-js-and-ajax-requests.jpg?fm=jpg&q=70&s=587cf6e4e2ed983ae163ebc0ebef71a8)
+
 
 
 #### Editor: Yangfan 2017-08-17
