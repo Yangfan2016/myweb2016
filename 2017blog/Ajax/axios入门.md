@@ -1,5 +1,8 @@
 # axios 入门
 
+英文原文档： [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
+中文文档：[https://segmentfault.com/a/1190000008470355](https://segmentfault.com/a/1190000008470355)
+
 
 ## 什么是axios
 
@@ -136,6 +139,8 @@ axios(config).then(function (response) {
 
 ```
 
+
+## 全部配置
 
 
 
