@@ -1,9 +1,14 @@
 # axios 入门
 
 
-Yangfan 2017-08-17
+#### Yangfan 2017-08-17
 
-请查看完整文档，如下
+#### 本文档参考axios的官方文档和网上的axios使用教程
+
+#### 鄙人水平有限，还望批评指正
+
+
+强烈建议查看完整文档，链接如下
 
 英文原文档： [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
 
