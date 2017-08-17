@@ -64,13 +64,31 @@ npm install axios
 
 ```js
 
-axios.get('http://getRes.php?id=123456').then(function (response) {
+// 法一 请求参数写到url中
+
+axios.get('http://getRes.php?id=123456&name=Yangfan').then(function (response) {
   // TODO
   // 返回HTTP请求成功的数据
 }).catch(function (error) {
   // TODO
   // 返回HTTP请求失败的失败信息
 });
+
+// 法二 请求参数写到axios配置参数中
+
+axios.get('http://getRes.php'，{
+  params:{
+    id:123456,
+    name:"Yangfan"
+  }
+}).then(function (response) {
+  // TODO
+  // 返回HTTP请求成功的数据
+}).catch(function (error) {
+  // TODO
+  // 返回HTTP请求失败的失败信息
+});
+
 
 ```
 
