@@ -113,7 +113,8 @@ axios.post('http://getRes.php',{
 
 ```js
 
-axios({
+// 配置
+var config={
   method: 'GET',  // 请求方法                                           
   url: 'http://getRes.php',  // 请求url                          
   headers: { 
@@ -123,9 +124,19 @@ axios({
     id: 123456,
     name: 'Yangfan'
   }
+};
+
+axios(config).then(function (response) {
+  // TODO
+  // 返回HTTP请求成功的数据
+}).catch(function (error) {
+  // TODO
+  // 返回HTTP请求失败的失败信息
 });
 
 ```
+
+
 
 
 
