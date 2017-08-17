@@ -6,6 +6,11 @@
 和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。
 也就是说v-cloak指令可以像CSS选择器一样绑定一套CSS样式然后这套CSS会一直生效到实例编译结束。
 
+![pic](https://github.com/Yangfan2016/PicBed/blob/master/Blog/vue002.png)
+
+
+
+
 
 示例代码：
 ```html
