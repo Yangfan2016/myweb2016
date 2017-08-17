@@ -1,7 +1,10 @@
 # axios 入门
 
 
-![axios](https://github.com/Yangfan2016/PicBed/blob/master/Blog/vue%2Baxios001.jpg)
+
+
+
+![001](https://devdojo.com/media/images/June2017/vue-js-and-ajax-requests.jpg?fm=jpg&q=70&s=587cf6e4e2ed983ae163ebc0ebef71a8)
 
 
 #### Editor: Yangfan 2017-08-17
