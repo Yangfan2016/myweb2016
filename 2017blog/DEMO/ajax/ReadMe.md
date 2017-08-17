@@ -2,7 +2,7 @@
 
 
 ## 封装
-axios.min.js
+axios.min.js  
 sha1.min.js
 
 
@@ -23,13 +23,13 @@ axios(config),then(succ).catch(err);
 ```js
 
 myAxios({
-	url:"./getRequset.php",
-	method:"GET",
-	params:{id:"123"}
+    url:"./getRequset.php",
+    method:"GET",
+    params:{id:"123"}
 },function (res) {
-	console.log(res.data);
+    console.log(res.data);
 },function (err) {
-	console.log(err);
+    console.log(err);
 });
 
 
@@ -37,11 +37,11 @@ myAxios({
 var axios=myAxios();
 
 axios.get('./getRequset.php',{
-	params:{id:"123"}
+    params:{id:"123"}
 }).then(res=>{
-	console.log(res.data);
+    console.log(res.data);
 }).catch(err=>{
-	console.warn(err);
+    console.warn(err);
 });
 
 ```
@@ -49,8 +49,8 @@ axios.get('./getRequset.php',{
 
 ## myAxios参数
 
-@param  {[Object]} config [axios的配置参数]
-@param  {[Function]} then   [请求成功的回调]
-@param  {[Function]} catch2 [请求失败的回调]
-@return {[type]}        [返回值，不传参数时，返回axios函数]
+@param  {[Object]} config [axios的配置参数]  
+@param  {[Function]} then   [请求成功的回调]  
+@param  {[Function]} catch2 [请求失败的回调]  
+@return {[type]}        [返回值，不传参数时，返回axios函数]  
 
