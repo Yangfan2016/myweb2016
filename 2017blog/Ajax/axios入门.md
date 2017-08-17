@@ -8,7 +8,7 @@
 
 ---
 
-强烈建议查看完整文档，链接如下
+**强烈建议查看完整文档，链接如下**
 
 英文原文档： [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
 
