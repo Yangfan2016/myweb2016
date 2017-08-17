@@ -60,7 +60,7 @@ npm install axios
 
 ### 简单的demo
 
-一个简单的HTTP GET请求
+** 一个简单的HTTP GET请求
 
 ```js
 
@@ -92,7 +92,7 @@ axios.get('http://getRes.php'，{
 
 ```
 
-一个简单的HTTP POST 请求
+** 一个简单的HTTP POST 请求
 
 ```js
 
@@ -109,7 +109,23 @@ axios.post('http://getRes.php',{
 
 ```
 
+** 自定义请求配置
 
+```js
+
+axios({
+  method: 'GET',  // 请求方法                                           
+  url: 'http://getRes.php',  // 请求url                          
+  headers: { 
+    token: 'ftv1443qby6bdfa41t90sfvq89hg3h54u989m9imog79g4'   // 请求头                                              
+  },
+  data: {         // 需要传递的数据                                 
+    id: 123456,
+    name: 'Yangfan'
+  }
+});
+
+```
 
 
 
