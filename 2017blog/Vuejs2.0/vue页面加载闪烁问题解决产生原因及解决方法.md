@@ -38,4 +38,5 @@ vue中我们会将数据包在两个大括号中，然后放到HTML里，但是�
 
 ```
 
+原文档：[https://cn.vuejs.org/v2/api/#v-cloak](https://cn.vuejs.org/v2/api/#v-cloak)
 
