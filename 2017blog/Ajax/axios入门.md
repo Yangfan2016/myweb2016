@@ -1,5 +1,10 @@
 # axios 入门
 
+
+Yangfan 2017-08-17
+
+请查看完整文档，如下
+
 英文原文档： [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
 
 中文文档：[https://segmentfault.com/a/1190000008470355](https://segmentfault.com/a/1190000008470355)
