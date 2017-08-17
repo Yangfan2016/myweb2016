@@ -1,4 +1,4 @@
-# axios 入门（针对Vue）
+# axios 入门
 
 
 ## 什么是axios
@@ -59,6 +59,8 @@ npm install axios
 ## 用法及配置
 
 ### 简单的demo
+
+一个简单的HTTP get请求
 
 ```js
 
