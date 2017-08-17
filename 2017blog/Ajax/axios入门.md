@@ -14,16 +14,16 @@
 
 
 
-就是一个基于ES6的Promise的网络请求库，其实说干净了就是一个打包好的XMLHttpRequests，也就是说，这个也是一个ajax库。
+axios是一个基于ES6的Promise的网络请求库，是一个ajax库。
 
 
-所以它一样可以实现：
+可以实现：
 
 - 在浏览器里建立XHR
 
 - 通过nodejs进行http请求
 
-甚至可以实现！
+甚至可以实现：
 
 - 转换或者拦截请求数据或响应数据
 
@@ -35,7 +35,7 @@
 
 - 可以防御XSRF攻击！
 
-浏览器支持问题也没什么问题，IE这种本时代异端都能支持到8+，这问题是不大了。（VUE支持到9+！）
+浏览器支持也没什么问题，IE这种本时代异端都能支持到8+，这问题是不大了。（VUE支持到9+！）
 
 
 ## 怎么用
@@ -50,13 +50,38 @@ npm install axios
 ```
 2. webpack之类的打包工具导入
 
+```
+
+import axios from 'axios'
+
+// or
+
+var axios=require('axios');
+
+
+
+//===============Vue===================
+// Vue全局引用及使用
+
+import axios from 'axios'
+Vue.prototype.$http = axios
+
+this.$http.get('/user?ID=12345')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+```
 
 
 ### 方法二  script标签引入
 
 ```html
 
-<script type="text/javascript" src="path/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 ```
 
