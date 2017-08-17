@@ -1,6 +1,9 @@
 # axios 入门
 
 
+![axios](https://github.com/Yangfan2016/PicBed/blob/master/Blog/vue%2Baxios001.jpg)
+
+
 #### Editor: Yangfan 2017-08-17
 
 #### Intro: 本文档参考axios的官方文档和网上的axios使用教程所写，后续还会不断完善，鄙人水平有限，还望批评指正
