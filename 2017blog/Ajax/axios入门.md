@@ -50,7 +50,7 @@ npm install axios
 ```
 2. webpack之类的打包工具导入
 
-```
+```js
 
 import axios from 'axios'
 
