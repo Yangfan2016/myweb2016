@@ -60,7 +60,7 @@ npm install axios
 
 ### 简单的demo
 
-一个简单的HTTP get请求
+一个简单的HTTP GET请求
 
 ```js
 
@@ -73,5 +73,26 @@ axios.get('http://getRes.php?id=123456').then(function (response) {
 });
 
 ```
+
+一个简单的HTTP POST 请求
+
+```js
+
+axios.post('http://getRes.php',{
+  id:123456,
+  name:"Yangfan"
+}).then(function (response) {
+  // TODO
+  // 返回HTTP请求成功的数据
+}).catch(function (error) {
+  // TODO
+  // 返回HTTP请求失败的失败信息
+});
+
+```
+
+
+
+
 
 
