@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article id="{文件名}"  type="类型" >
+  <title>{题名}</title>
+  <title xml:lang="en">英文标题</title>
+
+  <abstract>{摘要}</abstract>
+  <abstract xml:lang="en">英文摘要</abstract>
+
+  <prolog>
+
+    <authorinformation>
+      <personinfo>
+        <namedetails>
+          <personname>
+            <authorid>学者代码</authorid>
+            <fullname>{作者}</fullname>
+            <fullname xml:lang="en">英文全名</fullname>
+            <firstname>名</firstname>
+            <firstname xml:lang="en">英文名</firstname>
+            <lastname>姓</lastname>
+            <lastname xml:lang="en">英文姓</lastname>
+          </personname>
+        </namedetails>
+      </personinfo>
+      <organizationinfo>
+        <namedetails>
+          <organizationnamedetails>
+            <organizationid>机构代码</organizationid>
+            <organizationname>{机构}</organizationname>
+          </organizationnamedetails>
+        </namedetails>
+        <addressdetails>
+          <locality>
+            <country>国家</country>
+            <city>城市</city>
+            <postcode>邮政编码</postcode>
+            <address>地址</address>
+          </locality>
+        </addressdetails>
+      </organizationinfo>
+    </authorinformation>
+
+    <authorinformation/>
+
+    <sourcemeta>
+      <sourceinfo id="来源代码">
+        <sourcetitle>{来源}</sourcetitle>
+        <sourcetitle xml:lang="py">拼音刊名</sourcetitle>
+        <sourcetitle xml:lang="en">英文刊名</sourcetitle>
+      </sourceinfo>
+      <cn>CN</cn>
+      <issn type="ppub">纸质版 ISSN</issn>
+      <issn type="epub">电子版 ISSN</issn>
+      <sci></sci>
+      <ei></ei>
+      <corejournal>核心期刊{Y,N}</corejournal>
+      <impactfactor>影响因子</impactfactor>
+      <year>年</year>
+      <issue>期(或卷)</issue>
+      <pubdate>发表时间</pubdate>
+      <location>
+        <pagenum>纸质版页码</pagenum>
+        <pagespan>页数</pagespan>
+        <page>页码(m+n-k,p1,p2)</page>
+      </location>
+      <publisher>
+        <publishername>出版者</publishername>
+      </publisher>
+    </sourcemeta>
+
+    <metadata>
+      <category>中图分类号</category>
+
+      <collections>
+        <collection id="专辑代码">专辑</collection>
+        <subcollection id="专题代码">专题</subcollection>
+        <specialcollection id="专题子栏目代码">专题子栏目</specialcollection>
+      </collections>
+
+      <keywords>
+        <keyword>{关键词}</keyword>
+        <keyword/>
+      </keywords>
+
+      <keywords xml:lang="en">
+        <keyword>英文关键词</keyword>
+        <keyword/>
+      </keywords>
+
+      <subjects>
+        <subject>主题词</subject>
+      </subjects>
+
+      <ffd>权重</ffd>
+
+      <vsm>相似向量</vsm>
+
+      <funds>
+        <fund id="基金代码">{基金}</fund>
+        <fund/>
+      </funds>
+    </metadata>
+
+    <identifier>
+      <uri>URI</uri>
+      <doi>DOI</doi>
+      <rigisterdoi>注册DOI</rigisterdoi>
+    </identifier>
+
+    <format>
+      <tablename>表名</tablename>
+      <cdno>光盘号</cdno>
+      <filename>文件名</filename>
+      <size>大小</size>
+    </format>
+
+    <dates>
+      <created date="创建时间"/>
+      <revised date="修改时间"/>
+      <received date="发布时间"/>
+    </dates>
+
+    <usage>
+      <citedtotal>被引频次</citedtotal>
+      <citedbyother>同被引频次</citedbyother>
+      <download>下载频次</download>
+    </usage>
+
+  </prolog>
+  <body>
+    <section id="段落编号，8位，文内增长">
+      <title>段落标题</title>
+      <subject>段落主题词</subject>
+      <tag>标签</tag>
+      <p>段落正文</p>
+      <p>段落正文</p>
+    </section>
+    <section/>
+  </body>
+
+  <annotation>
+    <annotationitem>
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </annotationitem>
+    <annotationitem />
+  </annotation>
+
+
+  <bibliography>
+    <biblioitem type="类型" id="引文编号">
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </biblioitem>
+    <biblioitem />
+  </bibliography>
+
+  <authorintro id="学者代码">作者简介</authorintro>
+  
+</article>
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article id="{文件名}"  type="类型" >
+  <title>{题名}</title>
+  <title xml:lang="en">英文标题</title>
+
+  <abstract>{摘要}</abstract>
+  <abstract xml:lang="en">英文摘要</abstract>
+
+  <prolog>
+
+    <authorinformation>
+      <personinfo>
+        <namedetails>
+          <personname>
+            <authorid>学者代码</authorid>
+            <fullname>{作者}</fullname>
+            <fullname xml:lang="en">英文全名</fullname>
+            <firstname>名</firstname>
+            <firstname xml:lang="en">英文名</firstname>
+            <lastname>姓</lastname>
+            <lastname xml:lang="en">英文姓</lastname>
+          </personname>
+        </namedetails>
+      </personinfo>
+      <organizationinfo>
+        <namedetails>
+          <organizationnamedetails>
+            <organizationid>机构代码</organizationid>
+            <organizationname>{机构}</organizationname>
+          </organizationnamedetails>
+        </namedetails>
+        <addressdetails>
+          <locality>
+            <country>国家</country>
+            <city>城市</city>
+            <postcode>邮政编码</postcode>
+            <address>地址</address>
+          </locality>
+        </addressdetails>
+      </organizationinfo>
+    </authorinformation>
+
+    <authorinformation/>
+
+    <sourcemeta>
+      <sourceinfo id="来源代码">
+        <sourcetitle>{来源}</sourcetitle>
+        <sourcetitle xml:lang="py">拼音刊名</sourcetitle>
+        <sourcetitle xml:lang="en">英文刊名</sourcetitle>
+      </sourceinfo>
+      <cn>CN</cn>
+      <issn type="ppub">纸质版 ISSN</issn>
+      <issn type="epub">电子版 ISSN</issn>
+      <sci></sci>
+      <ei></ei>
+      <corejournal>核心期刊{Y,N}</corejournal>
+      <impactfactor>影响因子</impactfactor>
+      <year>年</year>
+      <issue>期(或卷)</issue>
+      <pubdate>发表时间</pubdate>
+      <location>
+        <pagenum>纸质版页码</pagenum>
+        <pagespan>页数</pagespan>
+        <page>页码(m+n-k,p1,p2)</page>
+      </location>
+      <publisher>
+        <publishername>出版者</publishername>
+      </publisher>
+    </sourcemeta>
+
+    <metadata>
+      <category>中图分类号</category>
+
+      <collections>
+        <collection id="专辑代码">专辑</collection>
+        <subcollection id="专题代码">专题</subcollection>
+        <specialcollection id="专题子栏目代码">专题子栏目</specialcollection>
+      </collections>
+
+      <keywords>
+        <keyword>{关键词}</keyword>
+        <keyword/>
+      </keywords>
+
+      <keywords xml:lang="en">
+        <keyword>英文关键词</keyword>
+        <keyword/>
+      </keywords>
+
+      <subjects>
+        <subject>主题词</subject>
+      </subjects>
+
+      <ffd>权重</ffd>
+
+      <vsm>相似向量</vsm>
+
+      <funds>
+        <fund id="基金代码">{基金}</fund>
+        <fund/>
+      </funds>
+    </metadata>
+
+    <identifier>
+      <uri>URI</uri>
+      <doi>DOI</doi>
+      <rigisterdoi>注册DOI</rigisterdoi>
+    </identifier>
+
+    <format>
+      <tablename>表名</tablename>
+      <cdno>光盘号</cdno>
+      <filename>文件名</filename>
+      <size>大小</size>
+    </format>
+
+    <dates>
+      <created date="创建时间"/>
+      <revised date="修改时间"/>
+      <received date="发布时间"/>
+    </dates>
+
+    <usage>
+      <citedtotal>被引频次</citedtotal>
+      <citedbyother>同被引频次</citedbyother>
+      <download>下载频次</download>
+    </usage>
+
+  </prolog>
+  <body>
+    <section id="段落编号，8位，文内增长">
+      <title>段落标题</title>
+      <subject>段落主题词</subject>
+      <tag>标签</tag>
+      <p>段落正文</p>
+      <p>段落正文</p>
+    </section>
+    <section/>
+  </body>
+
+  <annotation>
+    <annotationitem>
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </annotationitem>
+    <annotationitem />
+  </annotation>
+
+
+  <bibliography>
+    <biblioitem type="类型" id="引文编号">
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </biblioitem>
+    <biblioitem />
+  </bibliography>
+
+  <authorintro id="学者代码">作者简介</authorintro>
+
+</article>
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article id="{文件名}"  type="类型" >
+  <title>{题名}</title>
+  <title xml:lang="en">英文标题</title>
+
+  <abstract>{摘要}</abstract>
+  <abstract xml:lang="en">英文摘要</abstract>
+
+  <prolog>
+
+    <authorinformation>
+      <personinfo>
+        <namedetails>
+          <personname>
+            <authorid>学者代码</authorid>
+            <fullname>{作者}</fullname>
+            <fullname xml:lang="en">英文全名</fullname>
+            <firstname>名</firstname>
+            <firstname xml:lang="en">英文名</firstname>
+            <lastname>姓</lastname>
+            <lastname xml:lang="en">英文姓</lastname>
+          </personname>
+        </namedetails>
+      </personinfo>
+      <organizationinfo>
+        <namedetails>
+          <organizationnamedetails>
+            <organizationid>机构代码</organizationid>
+            <organizationname>{机构}</organizationname>
+          </organizationnamedetails>
+        </namedetails>
+        <addressdetails>
+          <locality>
+            <country>国家</country>
+            <city>城市</city>
+            <postcode>邮政编码</postcode>
+            <address>地址</address>
+          </locality>
+        </addressdetails>
+      </organizationinfo>
+    </authorinformation>
+
+    <authorinformation/>
+
+    <sourcemeta>
+      <sourceinfo id="来源代码">
+        <sourcetitle>{来源}</sourcetitle>
+        <sourcetitle xml:lang="py">拼音刊名</sourcetitle>
+        <sourcetitle xml:lang="en">英文刊名</sourcetitle>
+      </sourceinfo>
+      <cn>CN</cn>
+      <issn type="ppub">纸质版 ISSN</issn>
+      <issn type="epub">电子版 ISSN</issn>
+      <sci></sci>
+      <ei></ei>
+      <corejournal>核心期刊{Y,N}</corejournal>
+      <impactfactor>影响因子</impactfactor>
+      <year>年</year>
+      <issue>期(或卷)</issue>
+      <pubdate>发表时间</pubdate>
+      <location>
+        <pagenum>纸质版页码</pagenum>
+        <pagespan>页数</pagespan>
+        <page>页码(m+n-k,p1,p2)</page>
+      </location>
+      <publisher>
+        <publishername>出版者</publishername>
+      </publisher>
+    </sourcemeta>
+
+    <metadata>
+      <category>中图分类号</category>
+
+      <collections>
+        <collection id="专辑代码">专辑</collection>
+        <subcollection id="专题代码">专题</subcollection>
+        <specialcollection id="专题子栏目代码">专题子栏目</specialcollection>
+      </collections>
+
+      <keywords>
+        <keyword>{关键词}</keyword>
+        <keyword/>
+      </keywords>
+
+      <keywords xml:lang="en">
+        <keyword>英文关键词</keyword>
+        <keyword/>
+      </keywords>
+
+      <subjects>
+        <subject>主题词</subject>
+      </subjects>
+
+      <ffd>权重</ffd>
+
+      <vsm>相似向量</vsm>
+
+      <funds>
+        <fund id="基金代码">{基金}</fund>
+        <fund/>
+      </funds>
+    </metadata>
+
+    <identifier>
+      <uri>URI</uri>
+      <doi>DOI</doi>
+      <rigisterdoi>注册DOI</rigisterdoi>
+    </identifier>
+
+    <format>
+      <tablename>表名</tablename>
+      <cdno>光盘号</cdno>
+      <filename>文件名</filename>
+      <size>大小</size>
+    </format>
+
+    <dates>
+      <created date="创建时间"/>
+      <revised date="修改时间"/>
+      <received date="发布时间"/>
+    </dates>
+
+    <usage>
+      <citedtotal>被引频次</citedtotal>
+      <citedbyother>同被引频次</citedbyother>
+      <download>下载频次</download>
+    </usage>
+
+  </prolog>
+  <body>
+    <section id="段落编号，8位，文内增长">
+      <title>段落标题</title>
+      <subject>段落主题词</subject>
+      <tag>标签</tag>
+      <p>段落正文</p>
+      <p>段落正文</p>
+    </section>
+    <section/>
+  </body>
+
+  <annotation>
+    <annotationitem>
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </annotationitem>
+    <annotationitem />
+  </annotation>
+
+
+  <bibliography>
+    <biblioitem type="类型" id="引文编号">
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </biblioitem>
+    <biblioitem />
+  </bibliography>
+
+  <authorintro id="学者代码">作者简介</authorintro>
+
+</article>
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article id="{文件名}"  type="类型" >
+  <title>{题名}</title>
+  <title xml:lang="en">英文标题</title>
+
+  <abstract>{摘要}</abstract>
+  <abstract xml:lang="en">英文摘要</abstract>
+
+  <prolog>
+
+    <authorinformation>
+      <personinfo>
+        <namedetails>
+          <personname>
+            <authorid>学者代码</authorid>
+            <fullname>{作者}</fullname>
+            <fullname xml:lang="en">英文全名</fullname>
+            <firstname>名</firstname>
+            <firstname xml:lang="en">英文名</firstname>
+            <lastname>姓</lastname>
+            <lastname xml:lang="en">英文姓</lastname>
+          </personname>
+        </namedetails>
+      </personinfo>
+      <organizationinfo>
+        <namedetails>
+          <organizationnamedetails>
+            <organizationid>机构代码</organizationid>
+            <organizationname>{机构}</organizationname>
+          </organizationnamedetails>
+        </namedetails>
+        <addressdetails>
+          <locality>
+            <country>国家</country>
+            <city>城市</city>
+            <postcode>邮政编码</postcode>
+            <address>地址</address>
+          </locality>
+        </addressdetails>
+      </organizationinfo>
+    </authorinformation>
+
+    <authorinformation/>
+
+    <sourcemeta>
+      <sourceinfo id="来源代码">
+        <sourcetitle>{来源}</sourcetitle>
+        <sourcetitle xml:lang="py">拼音刊名</sourcetitle>
+        <sourcetitle xml:lang="en">英文刊名</sourcetitle>
+      </sourceinfo>
+      <cn>CN</cn>
+      <issn type="ppub">纸质版 ISSN</issn>
+      <issn type="epub">电子版 ISSN</issn>
+      <sci></sci>
+      <ei></ei>
+      <corejournal>核心期刊{Y,N}</corejournal>
+      <impactfactor>影响因子</impactfactor>
+      <year>年</year>
+      <issue>期(或卷)</issue>
+      <pubdate>发表时间</pubdate>
+      <location>
+        <pagenum>纸质版页码</pagenum>
+        <pagespan>页数</pagespan>
+        <page>页码(m+n-k,p1,p2)</page>
+      </location>
+      <publisher>
+        <publishername>出版者</publishername>
+      </publisher>
+    </sourcemeta>
+
+    <metadata>
+      <category>中图分类号</category>
+
+      <collections>
+        <collection id="专辑代码">专辑</collection>
+        <subcollection id="专题代码">专题</subcollection>
+        <specialcollection id="专题子栏目代码">专题子栏目</specialcollection>
+      </collections>
+
+      <keywords>
+        <keyword>{关键词}</keyword>
+        <keyword/>
+      </keywords>
+
+      <keywords xml:lang="en">
+        <keyword>英文关键词</keyword>
+        <keyword/>
+      </keywords>
+
+      <subjects>
+        <subject>主题词</subject>
+      </subjects>
+
+      <ffd>权重</ffd>
+
+      <vsm>相似向量</vsm>
+
+      <funds>
+        <fund id="基金代码">{基金}</fund>
+        <fund/>
+      </funds>
+    </metadata>
+
+    <identifier>
+      <uri>URI</uri>
+      <doi>DOI</doi>
+      <rigisterdoi>注册DOI</rigisterdoi>
+    </identifier>
+
+    <format>
+      <tablename>表名</tablename>
+      <cdno>光盘号</cdno>
+      <filename>文件名</filename>
+      <size>大小</size>
+    </format>
+
+    <dates>
+      <created date="创建时间"/>
+      <revised date="修改时间"/>
+      <received date="发布时间"/>
+    </dates>
+
+    <usage>
+      <citedtotal>被引频次</citedtotal>
+      <citedbyother>同被引频次</citedbyother>
+      <download>下载频次</download>
+    </usage>
+
+  </prolog>
+  <body>
+    <section id="段落编号，8位，文内增长">
+      <title>段落标题</title>
+      <subject>段落主题词</subject>
+      <tag>标签</tag>
+      <p>段落正文</p>
+      <p>段落正文</p>
+    </section>
+    <section/>
+  </body>
+
+  <annotation>
+    <annotationitem>
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </annotationitem>
+    <annotationitem />
+  </annotation>
+
+
+  <bibliography>
+    <biblioitem type="类型" id="引文编号">
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </biblioitem>
+    <biblioitem />
+  </bibliography>
+
+  <authorintro id="学者代码">作者简介</authorintro>
+
+</article>
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article id="{文件名}"  type="类型" >
+  <title>{题名}</title>
+  <title xml:lang="en">英文标题</title>
+
+  <abstract>{摘要}</abstract>
+  <abstract xml:lang="en">英文摘要</abstract>
+
+  <prolog>
+
+    <authorinformation>
+      <personinfo>
+        <namedetails>
+          <personname>
+            <authorid>学者代码</authorid>
+            <fullname>{作者}</fullname>
+            <fullname xml:lang="en">英文全名</fullname>
+            <firstname>名</firstname>
+            <firstname xml:lang="en">英文名</firstname>
+            <lastname>姓</lastname>
+            <lastname xml:lang="en">英文姓</lastname>
+          </personname>
+        </namedetails>
+      </personinfo>
+      <organizationinfo>
+        <namedetails>
+          <organizationnamedetails>
+            <organizationid>机构代码</organizationid>
+            <organizationname>{机构}</organizationname>
+          </organizationnamedetails>
+        </namedetails>
+        <addressdetails>
+          <locality>
+            <country>国家</country>
+            <city>城市</city>
+            <postcode>邮政编码</postcode>
+            <address>地址</address>
+          </locality>
+        </addressdetails>
+      </organizationinfo>
+    </authorinformation>
+
+    <authorinformation/>
+
+    <sourcemeta>
+      <sourceinfo id="来源代码">
+        <sourcetitle>{来源}</sourcetitle>
+        <sourcetitle xml:lang="py">拼音刊名</sourcetitle>
+        <sourcetitle xml:lang="en">英文刊名</sourcetitle>
+      </sourceinfo>
+      <cn>CN</cn>
+      <issn type="ppub">纸质版 ISSN</issn>
+      <issn type="epub">电子版 ISSN</issn>
+      <sci></sci>
+      <ei></ei>
+      <corejournal>核心期刊{Y,N}</corejournal>
+      <impactfactor>影响因子</impactfactor>
+      <year>年</year>
+      <issue>期(或卷)</issue>
+      <pubdate>发表时间</pubdate>
+      <location>
+        <pagenum>纸质版页码</pagenum>
+        <pagespan>页数</pagespan>
+        <page>页码(m+n-k,p1,p2)</page>
+      </location>
+      <publisher>
+        <publishername>出版者</publishername>
+      </publisher>
+    </sourcemeta>
+
+    <metadata>
+      <category>中图分类号</category>
+
+      <collections>
+        <collection id="专辑代码">专辑</collection>
+        <subcollection id="专题代码">专题</subcollection>
+        <specialcollection id="专题子栏目代码">专题子栏目</specialcollection>
+      </collections>
+
+      <keywords>
+        <keyword>{关键词}</keyword>
+        <keyword/>
+      </keywords>
+
+      <keywords xml:lang="en">
+        <keyword>英文关键词</keyword>
+        <keyword/>
+      </keywords>
+
+      <subjects>
+        <subject>主题词</subject>
+      </subjects>
+
+      <ffd>权重</ffd>
+
+      <vsm>相似向量</vsm>
+
+      <funds>
+        <fund id="基金代码">{基金}</fund>
+        <fund/>
+      </funds>
+    </metadata>
+
+    <identifier>
+      <uri>URI</uri>
+      <doi>DOI</doi>
+      <rigisterdoi>注册DOI</rigisterdoi>
+    </identifier>
+
+    <format>
+      <tablename>表名</tablename>
+      <cdno>光盘号</cdno>
+      <filename>文件名</filename>
+      <size>大小</size>
+    </format>
+
+    <dates>
+      <created date="创建时间"/>
+      <revised date="修改时间"/>
+      <received date="发布时间"/>
+    </dates>
+
+    <usage>
+      <citedtotal>被引频次</citedtotal>
+      <citedbyother>同被引频次</citedbyother>
+      <download>下载频次</download>
+    </usage>
+
+  </prolog>
+  <body>
+    <section id="段落编号，8位，文内增长">
+      <title>段落标题</title>
+      <subject>段落主题词</subject>
+      <tag>标签</tag>
+      <p>段落正文</p>
+      <p>段落正文</p>
+    </section>
+    <section/>
+  </body>
+
+  <annotation>
+    <annotationitem>
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </annotationitem>
+    <annotationitem />
+  </annotation>
+
+
+  <bibliography>
+    <biblioitem type="类型" id="引文编号">
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </biblioitem>
+    <biblioitem />
+  </bibliography>
+
+  <authorintro id="学者代码">作者简介</authorintro>
+
+</article>
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article id="{文件名}"  type="类型" >
+  <title>{题名}</title>
+  <title xml:lang="en">英文标题</title>
+
+  <abstract>{摘要}</abstract>
+  <abstract xml:lang="en">英文摘要</abstract>
+
+  <prolog>
+
+    <authorinformation>
+      <personinfo>
+        <namedetails>
+          <personname>
+            <authorid>学者代码</authorid>
+            <fullname>{作者}</fullname>
+            <fullname xml:lang="en">英文全名</fullname>
+            <firstname>名</firstname>
+            <firstname xml:lang="en">英文名</firstname>
+            <lastname>姓</lastname>
+            <lastname xml:lang="en">英文姓</lastname>
+          </personname>
+        </namedetails>
+      </personinfo>
+      <organizationinfo>
+        <namedetails>
+          <organizationnamedetails>
+            <organizationid>机构代码</organizationid>
+            <organizationname>{机构}</organizationname>
+          </organizationnamedetails>
+        </namedetails>
+        <addressdetails>
+          <locality>
+            <country>国家</country>
+            <city>城市</city>
+            <postcode>邮政编码</postcode>
+            <address>地址</address>
+          </locality>
+        </addressdetails>
+      </organizationinfo>
+    </authorinformation>
+
+    <authorinformation/>
+
+    <sourcemeta>
+      <sourceinfo id="来源代码">
+        <sourcetitle>{来源}</sourcetitle>
+        <sourcetitle xml:lang="py">拼音刊名</sourcetitle>
+        <sourcetitle xml:lang="en">英文刊名</sourcetitle>
+      </sourceinfo>
+      <cn>CN</cn>
+      <issn type="ppub">纸质版 ISSN</issn>
+      <issn type="epub">电子版 ISSN</issn>
+      <sci></sci>
+      <ei></ei>
+      <corejournal>核心期刊{Y,N}</corejournal>
+      <impactfactor>影响因子</impactfactor>
+      <year>年</year>
+      <issue>期(或卷)</issue>
+      <pubdate>发表时间</pubdate>
+      <location>
+        <pagenum>纸质版页码</pagenum>
+        <pagespan>页数</pagespan>
+        <page>页码(m+n-k,p1,p2)</page>
+      </location>
+      <publisher>
+        <publishername>出版者</publishername>
+      </publisher>
+    </sourcemeta>
+
+    <metadata>
+      <category>中图分类号</category>
+
+      <collections>
+        <collection id="专辑代码">专辑</collection>
+        <subcollection id="专题代码">专题</subcollection>
+        <specialcollection id="专题子栏目代码">专题子栏目</specialcollection>
+      </collections>
+
+      <keywords>
+        <keyword>{关键词}</keyword>
+        <keyword/>
+      </keywords>
+
+      <keywords xml:lang="en">
+        <keyword>英文关键词</keyword>
+        <keyword/>
+      </keywords>
+
+      <subjects>
+        <subject>主题词</subject>
+      </subjects>
+
+      <ffd>权重</ffd>
+
+      <vsm>相似向量</vsm>
+
+      <funds>
+        <fund id="基金代码">{基金}</fund>
+        <fund/>
+      </funds>
+    </metadata>
+
+    <identifier>
+      <uri>URI</uri>
+      <doi>DOI</doi>
+      <rigisterdoi>注册DOI</rigisterdoi>
+    </identifier>
+
+    <format>
+      <tablename>表名</tablename>
+      <cdno>光盘号</cdno>
+      <filename>文件名</filename>
+      <size>大小</size>
+    </format>
+
+    <dates>
+      <created date="创建时间"/>
+      <revised date="修改时间"/>
+      <received date="发布时间"/>
+    </dates>
+
+    <usage>
+      <citedtotal>被引频次</citedtotal>
+      <citedbyother>同被引频次</citedbyother>
+      <download>下载频次</download>
+    </usage>
+
+  </prolog>
+  <body>
+    <section id="段落编号，8位，文内增长">
+      <title>段落标题</title>
+      <subject>段落主题词</subject>
+      <tag>标签</tag>
+      <p>段落正文</p>
+      <p>段落正文</p>
+    </section>
+    <section/>
+  </body>
+
+  <annotation>
+    <annotationitem>
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </annotationitem>
+    <annotationitem />
+  </annotation>
+
+
+  <bibliography>
+    <biblioitem type="类型" id="引文编号">
+      <title>标题</title>
+      <author>作者</author>
+      <author/>
+      <source>来源</source>
+      <year>年</year>
+      <issue>期</issue>
+      <pagestart>起始页</pagestart>
+      <pageend>结束页</pageend>
+    </biblioitem>
+    <biblioitem />
+  </bibliography>
+
+  <authorintro id="学者代码">作者简介</authorintro>
+
+</article>
