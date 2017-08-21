@@ -44,5 +44,5 @@ axios2.post('./getRequset.php',{
 ```
 
 
-
+## axios用法详情 [axios入门](https://github.com/Yangfan2016/myweb2016/blob/master/2017blog/Ajax/axios%E5%85%A5%E9%97%A8.md)
 
