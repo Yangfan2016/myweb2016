@@ -346,4 +346,28 @@ axios(config).then(function (response) {
 </table>
 
 
+## 返回结果
+
+```js
+
+{
+  // 服务器返回的数据                                        
+  data: {},
+
+  // 服务器返回的状态码                              
+  status: 200,
+
+  // 服务器返回的状态信息                                                                     
+  statusText: 'OK',
+
+  // 服务器返回的响应头信息                      
+  headers: {},
+
+  // `config` is the config that was provided to `axios` for the request
+  config: {}
+}
+
+```
+
+
 
