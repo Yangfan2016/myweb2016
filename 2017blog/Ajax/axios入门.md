@@ -1,6 +1,6 @@
 # axios 入门
 
-
+#### 请忽略大图，不只是Vue，其他js均可用
 
 ![001](https://devdojo.com/media/images/June2017/vue-js-and-ajax-requests.jpg?fm=jpg&q=70&s=587cf6e4e2ed983ae163ebc0ebef71a8)
 
