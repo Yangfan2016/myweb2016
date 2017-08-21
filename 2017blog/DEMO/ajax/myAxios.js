@@ -12,10 +12,10 @@ var myAxios=function (isCustom) {
 	// --------------------------------MY-----------------------------------------
 	if (isCustom) {
 		var customHeader={
-				timestamp:Date.parse(new Date())/1000,
-				appid:"sns_local",
-				appkey:"1231231132154656"
-			};
+			timestamp:Date.parse(new Date())/1000,
+			appid:"sns_local",
+			appkey:"1231231132154656"
+		};
 		customHeader.sign=sha1("timestamp={"+customHeader.timestamp+"}&appid={"+customHeader.appid+"}&appkey={"+customHeader.appkey+"}");
 		for (var key in customHeader) {
 			axios.defaults.headers.common[key]=customHeader[key];
