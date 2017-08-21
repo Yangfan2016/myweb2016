@@ -17,7 +17,7 @@
 
 英文原文档： [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)   
 
-中文文档：
+中文文档：     
 [https://www.awesomes.cn/repo/mzabriskie/axios](https://www.awesomes.cn/repo/mzabriskie/axios)   
 [https://segmentfault.com/a/1190000008470355](https://segmentfault.com/a/1190000008470355)    
 
