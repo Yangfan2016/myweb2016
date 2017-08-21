@@ -1,9 +1,7 @@
 /**
  * [myAxios axios自定义请求头信息]
- * @param  {[Object]} config [axios的配置参数]
- * @param  {[Function]} then   [请求成功的回调]
- * @param  {[Function]} catch2 [请求失败的回调]
- * @return {[type]}        [返回值，不传参数时，返回axios函数]
+ * @param  {[Boolean]} isCustom [是否添加自定义请求头信息]
+ * @return {[type]}        [返回值，返回axios]
  */
 var myAxios=function (isCustom) {
 	// ====================axios==============================
