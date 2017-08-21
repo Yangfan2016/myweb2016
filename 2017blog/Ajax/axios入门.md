@@ -363,7 +363,7 @@ axios(config).then(function (response) {
   // 服务器返回的响应头信息                      
   headers: {},
 
-  // `config` is the config that was provided to `axios` for the request
+  // `config`是提供给`axios`的请求的配置
   config: {}
 }
 
