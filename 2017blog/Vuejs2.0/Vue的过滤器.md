@@ -87,3 +87,9 @@ filters:{
 使用场景
 
 当模板中放入太多的逻辑，模板过重且难以维护时，你都应当使用计算属性。
+
+
+
+原文：[http://www.cnblogs.com/lolDragon/p/6247651.html](http://www.cnblogs.com/lolDragon/p/6247651.html)
+Vuejs文档：[https://012-cn.vuejs.org/guide/custom-filter.html](https://012-cn.vuejs.org/guide/custom-filter.html)
+
