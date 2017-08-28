@@ -4,6 +4,7 @@
 ## 封装
 axios.min.js  
 sha1.min.js （sha1加密）
+自定义headers
 
 
 ## 用法
