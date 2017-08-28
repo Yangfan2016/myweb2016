@@ -11,7 +11,7 @@ sha1.min.js
 ```js
 
 
-axios(config).then(succ).catch(err); // 其他用法与axios无异
+axios(config).then(succ).catch(err); // 用法与axios无异
 
 ```
 
