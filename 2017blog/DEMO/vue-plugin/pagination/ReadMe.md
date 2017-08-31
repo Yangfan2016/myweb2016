@@ -1,5 +1,9 @@
 # Vue 分页组件
 
+## 预览
+
+链接 [https://rawgit.com/Yangfan2016/myweb2016/master/2017blog/DEMO/vue-plugin/pagination/index.html](https://rawgit.com/Yangfan2016/myweb2016/master/2017blog/DEMO/vue-plugin/pagination/index.html)
+
 
 ## 组价模板
 
