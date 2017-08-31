@@ -104,7 +104,9 @@ Vue.component('page-nav',{
 
 ## 参数说明
 
+看图
 
+![pic](https://github.com/Yangfan2016/PicBed/blob/master/Blog/pagination.png)
 
 
 ## 参考文献
