@@ -107,7 +107,9 @@ Vue.component('page-nav',{
 
 
 
+## 参考文献
 
+1. MUSE-UI [http://www.muse-ui.org/#/pagination](http://www.muse-ui.org/#/pagination)   
 
 
 
