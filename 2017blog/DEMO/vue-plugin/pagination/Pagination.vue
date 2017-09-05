@@ -19,7 +19,6 @@ export default {
         },
         current:{
             type:Number,
-            required:false,
             default:1
         }
     },
