@@ -116,9 +116,7 @@ Vue.component('page-nav', {
 
 ## 参数说明
 
-看图
-
-![pic]()
+略
 
 
 ## 参考文献
@@ -126,5 +124,4 @@ Vue.component('page-nav', {
 1. MUSE-UI [http://www.muse-ui.org/#/pagination](http://www.muse-ui.org/#/pagination)   
 
 
-
-       
+## Pagination.vue 
