@@ -1,5 +1,8 @@
 # Vue 分页组件
 
+Author: Yangfan
+CreateTime: 2017-08-31
+UpdateTime: 2017-09-05
 
 ## 使用
 
