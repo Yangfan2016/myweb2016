@@ -20,24 +20,40 @@
     <thead>
         <tr>
             <td>Props</td>
-            <td>Events</td>
+            <td>Type</td>
+            <td>PS</td>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>pageNum</td>
-            <td>2</td>
-            <td>3</td>
+            <td>Number</td>
+            <td>总页数</td>
         </tr>
         <tr>
             <td>current</td>
-            <td>2</td>
-            <td>3</td>
+            <td>Number</td>
+            <td>当前页</td>
         </tr>
         <tr>
             <td>isJump</td>
-            <td>2</td>
-            <td>3</td>
+            <td>Boolean</td>
+            <td>是否启用跳转到指定页插件</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <td>Events</td>
+            <td>PS</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>curPageChange</td>
+            <td>页面切换时触发</td>
         </tr>
     </tbody>
 </table>
