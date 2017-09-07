@@ -12,7 +12,11 @@
 
   - A：IE 浏览器 不支持 template 标签，会把template里的内容显示出来  
   - Q：法一： 给 template 标签 隐藏 `dislay:none`  
-       法二： 用script标签代替template  `<script type="text/template"> ...   </script>`  
+       法二： 用script标签代替template  `<script type="text/x-template"> ...   </script>`  
 
 ## Vue自身
 
+1. Vue 无法监听数组的变化
+
+  - A：Vue 无法监听数组的变化 `[1,2] -> [2,2] `
+  - Q：使用 `vm.$set(obj,key,value)`  由于js的限制 vue无法检测到数组的变化 ，用$set可以解决 [ https://segmentfault.com/q/1010000006058604]( https://segmentfault.com/q/1010000006058604)
