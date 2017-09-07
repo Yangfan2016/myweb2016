@@ -3,7 +3,7 @@
 
 > Git commnd
 
-```
+```bash
 
 # init
 git init
