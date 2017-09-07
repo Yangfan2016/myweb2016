@@ -12,7 +12,7 @@
 
   - A：IE 浏览器 不支持 template 标签，会把template里的内容显示出来  
   - Q：法一： 给 template 标签 隐藏 `dislay:none`  
-       法二： 用script标签代替template  `<script type="text/x-template"> ...   </script>`  
+       法二： 用script标签代替template  `<script type="x-template"> ...   </script>`  
 
 ## Vue自身
 
