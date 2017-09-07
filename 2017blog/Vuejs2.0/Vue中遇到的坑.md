@@ -17,7 +17,7 @@
 ```html
 
 <template id="demo3" style="display:none">
-    <h2 style="color:red">我是script标签模板</h2> 
+    <h2 style="color:red">我是template标签模板</h2> 
 </template>
 
 
