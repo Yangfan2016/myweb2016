@@ -16,7 +16,19 @@
 
 ## Vue自身
 
-1. Vue 无法监听数组的变化
+1. Vue 无法监听数组的变化 
 
-  - A：Vue 无法监听数组的变化 `[1,2] -> [2,2] `
-  - Q：使用 `vm.$set(obj,key,value)`  由于js的限制 vue无法检测到数组的变化 ，用$set可以解决 [ https://segmentfault.com/q/1010000006058604]( https://segmentfault.com/q/1010000006058604)
+  - A：Vue 无法监听数组的变化 `[1,2] -> [2,2] `    
+  - Q：使用 `vm.$set(obj,key,value)`  由于js的限制 vue无法检测到数组的变化 ，用$set可以解决 [ https://segmentfault.com/q/1010000006058604]( https://segmentfault.com/q/1010000006058604)    
+
+
+2. Vue 子组件的 使用 v-for 时 必须 定义 key 属性
+
+   ```html
+   
+   <template>
+      <div v-for="(item,indx) in arr" v-bind:key="index"></div>
+   </template>
+   
+   ```
+   
