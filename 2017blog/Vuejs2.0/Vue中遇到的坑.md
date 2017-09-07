@@ -16,7 +16,13 @@
 
 ```html
 
-<script type="x-template" id="helloNav">
+<template id="demo3" style="display:none">
+    <h2 style="color:red">我是script标签模板</h2> 
+</template>
+
+
+
+<script type="x-template" id="demo3">
     <h2 style="color:red">我是script标签模板</h2>
 </script>
 
