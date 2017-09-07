@@ -14,7 +14,7 @@
   - Q：法一： 给 template 标签 隐藏 `dislay:none`  
        法二： 用script标签代替template  `<script type="x-template"> ...   </script>`  
 
-```vue
+```html
 
 <script type="x-template" id="helloNav">
     <h2 style="color:red">我是script标签模板</h2>
