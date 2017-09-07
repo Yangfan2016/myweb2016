@@ -22,7 +22,7 @@
   - Q：使用 `vm.$set(obj,key,value)`  由于js的限制 vue无法检测到数组的变化 ，用$set可以解决 [ https://segmentfault.com/q/1010000006058604]( https://segmentfault.com/q/1010000006058604)    
 
 
-### 2. Vue 子组件的 使用 v-for 时 必须 定义 key 属性
+### 2. Vue 子组件的 使用 v-for 时 强烈建议 定义 key 属性
 
    ```html
    
