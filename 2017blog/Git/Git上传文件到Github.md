@@ -4,7 +4,7 @@
 > Git commnd
 
 
-## START
+## Fisrt Commit
 
 ```bash
 
@@ -25,6 +25,17 @@ git commit -m "注释"
 
 # push
 git push -u origin master
+
+
+```
+
+## Commit
+
+```bash
+
+#push
+
+git push origin master
 
 
 ```
