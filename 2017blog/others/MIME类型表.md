@@ -1,4 +1,4 @@
-# MIME类型表.md
+# MIME类型表
 
 
 <table>
