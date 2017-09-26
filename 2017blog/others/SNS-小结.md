@@ -1,7 +1,12 @@
 # SNS-小结
 
 
+
+
+
+
 ## Vue {{message}} 闪烁问题
+
 
 传送门 [vue页面加载闪烁问题解决产生原因及解决方法](https://github.com/Yangfan2016/myweb2016/blob/master/2017blog/Vuejs2.0/vue%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.md)
 
@@ -80,7 +85,7 @@ var getInfo=function () {
 
 ## 插件使用
 
-尽量选择不依赖jq的纯js插件  例如 layui[http://www.layui.com/doc/modules/layer.html](http://www.layui.com/doc/modules/layer.html)
+尽量选择不依赖jq的纯js插件  例如 layui   [http://www.layui.com/doc/modules/layer.html](http://www.layui.com/doc/modules/layer.html)
 
 1. 日期选择器 laydate   layui自带
 2. 弹框   layer          layui自带
@@ -88,7 +93,7 @@ var getInfo=function () {
 
 
 
-## to continue
+## To be continued
 
 待补充
 
