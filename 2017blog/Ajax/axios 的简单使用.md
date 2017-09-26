@@ -12,9 +12,9 @@
 axios({
     url: "@Url.Content("~/api/v1/scholar/custom")",   // URL
     method: "GET",                                    // 请求方法
-    params: {                                        // 只有 get方法传数据用 params 字段
-        scholarId: "@user.Id" || -1,
-        page: 1,  // 页数
+    params: {                                        // 只有 get方法传数据用 params 字段   
+        scholarId: "@user.Id" || -1,                 // params:{q:"1",name:"jobs"} 或   params:"q=1&name=jobs"  
+        page: 1,  // 页数
         size: 4, // 每页显示的个数
         q: ""
     }
@@ -42,7 +42,7 @@ axios({
     url:"@Url.Content("~/api/v1/scholar/focus")",     // URL
     method: "POST",                                   // 请求方法
     headers: { "Content-Type": "application/json" },   // 请求头
-    data: JSON.stringify({                              // 数据
+    data: JSON.stringify({                              // 数据  类型 string,plain object,ArrayBuffer,ArrayBufferView,URLSearchParams 
         "SourceScholarId": "@user.Id",
         "TargetScholarId": item.ScholarId
     })
