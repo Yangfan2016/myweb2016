@@ -1,10 +1,7 @@
 # SNS
 
 
-### PS
 
-1. **SNS.ajax依赖axios**     
-2. **SNS.layer 需要一张loading-2.gif的图片**    
 
 ### 简单使用
 
