@@ -129,7 +129,7 @@ SNS.layer.closeAll();
 
 ```js
 
-SNS.layer.load(el,config);
+var flag=SNS.layer.load(el,config);
 
 // el 为需要加弹层的DOM 的id
 // config 为配置参数  可选
@@ -137,6 +137,10 @@ SNS.layer.load(el,config);
 time:10*1000,  // 超时  单位毫秒 超过此时间自动关闭弹层
 shade:0.5  // 遮罩层的背景透明度 范围 0-1
 }
+
+SNS.layer.close(flag);
+
+SNS.layer.closeAll();
 
 ```
 
