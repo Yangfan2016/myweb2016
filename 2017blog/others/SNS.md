@@ -131,7 +131,6 @@ var flag=SNS.layer.load(el,config);
 // el 为需要加弹层的DOM 的id
 // config 为配置参数  可选
 config={
-	time:10*1000,  // 超时  单位毫秒 超过此时间自动关闭弹层
 	shade:0.5  // 遮罩层的背景透明度 范围 0-1
 }
 
