@@ -129,7 +129,7 @@ SNS.layer.closeAll();
 var flag=SNS.layer.load(el,config);
 
 // el 为需要加弹层的DOM 的id 
-   el为 0 时，全屏弹层
+// el为 0 时，全屏弹层
 // config 为配置参数  可选
 config={
 	shade:0.5  // 遮罩层的背景透明度 范围 0-1
