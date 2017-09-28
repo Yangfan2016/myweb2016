@@ -1,0 +1,155 @@
+# SNS
+
+
+### PS
+
+1. **SNS.ajax依赖axios**     
+2. **SNS.layer 需要一张loading-2.gif的图片**    
+
+### 简单使用
+
+#### 1. 使用ajax （**内部已集成认证信息，无需再在headers加认证信息**）
+
+```js
+
+SNS.ajax({
+    url:"/api/group",
+    method:"GET",
+    data:{                     
+        page: 1,
+        size: 6,
+        order: "lit_desc", 
+    },
+    headers:{"author":"who am i"}, // 可以添加额外的请求头信息
+    success:function (data) {
+        // todo
+    },
+    error:function (err) {  // 可选参数
+        // todo
+    }
+});
+
+```
+
+
+#### 2. 单独生成认证头信息
+
+```js
+
+SNS.makeAUTHHeaders();   // @return  {appid:"",appkey:"",sign:"",timestamp:""}
+
+```
+
+axios中使用示例
+
+```js
+
+axios({
+    url: "/api/sub",
+    method:"GET",
+    headers: {
+        "common": SNS.makeAUTHHeaders()  // 加入认证头信息 
+        "Content-Type": "application/json", // 其他头信息
+    },
+})
+    .then(function (response) {
+        // todo
+    })
+    .catch(function (error) {
+        // todo
+    });
+
+```
+
+#### 3. 单独使用SNS.layer
+
+```js
+
+// 生成
+
+var lay=SNS.layer("t1"); // 返回一个唯一标识符，用于关闭时使用
+
+// 关闭指定弹层
+
+SNS.layer.close(lay);
+
+// 关闭所有弹层
+
+SNS.layer.closeAll();
+
+
+```
+
+### 完整文档
+
+1. SNS.ajax
+
+**PS** 基于axios的封装，除文档提到的参数，还有params参数已内部处理同一为data参数外， 其他参数一律和axios相同
+
+<table>
+	<tr>
+		<th>参数</th>
+		<th>类型</th>
+		<th>解释</th>
+	</tr>
+	<tr>
+		<td>url</td>
+		<td>String</td>
+		<td>请求地址</td>
+	</tr>
+	<tr>
+		<td>method</td>
+		<td>String</td>
+		<td>请求方法 "GET POST ..."</td>
+	</tr>
+	<tr>
+		<td>data</td>
+		<td>Object || String</td>
+		<td>请求数据</td>
+	</tr>
+	<tr>
+		<td>success</td>
+		<td>Function </td>
+		<td>成功回调 <br/></td>
+	</tr>
+	<tr>
+		<td>error</td>
+		<td>Function</td>
+		<td>失败回调</td>
+	</tr>
+	<tr>
+		<td>layerId</td>
+		<td>String  可选参数</td>
+		<td>需要加弹层的DOM的id  加此参数后，会在HTPP请求加载前自动生成局部弹层，HTTP请求加载完自动消失</td>
+	</tr>
+</table>
+
+
+2. SNS.layer
+
+<table>
+	<tr>
+		<th>参数</th>
+		<th>类型</th>
+		<th>解释</th>
+	</tr>
+	<tr>
+		<td>el</td>
+		<td>String  必选参数</td>
+		<td>需要加弹层的DOM 的id</td>
+	</tr>
+	<tr>
+		<td>time</td>
+		<td>Number  可选</td>
+		<td>超时  单位毫秒 超过此时间自动关闭弹层 </td>
+	</tr>
+	<tr>
+		<td>shade</td>
+		<td>Number  可选</td>
+		<td>遮罩层的背景透明度<br/>范围 0-1</td>
+	</tr>
+</table>
+
+
+
+
