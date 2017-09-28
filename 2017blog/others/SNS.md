@@ -127,29 +127,17 @@ SNS.layer.closeAll();
 
 2. SNS.layer
 
-<table>
-	<tr>
-		<th>参数</th>
-		<th>类型</th>
-		<th>解释</th>
-	</tr>
-	<tr>
-		<td>el</td>
-		<td>String  必选参数</td>
-		<td>需要加弹层的DOM 的id</td>
-	</tr>
-	<tr>
-		<td>time</td>
-		<td>Number  可选</td>
-		<td>超时  单位毫秒 超过此时间自动关闭弹层 </td>
-	</tr>
-	<tr>
-		<td>shade</td>
-		<td>Number  可选</td>
-		<td>遮罩层的背景透明度<br/>范围 0-1</td>
-	</tr>
-</table>
+```js
 
+SNS.layer.load(el,config);
 
+// el 为需要加弹层的DOM 的id
+// config 为配置参数  可选
+{
+time:10*1000,  // 超时  单位毫秒 超过此时间自动关闭弹层
+shade:0.5  // 遮罩层的背景透明度 范围 0-1
+}
+
+```
 
 
