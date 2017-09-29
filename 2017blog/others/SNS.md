@@ -81,6 +81,14 @@ SNS.layer.closeAll();
 
 1. SNS.ajax
 
+```js
+
+var source=SNS.ajax(config); // config 配置如下
+
+source.canel(); // 取消指定请求
+
+```
+
 **PS** 基于axios的封装，除文档提到的参数，还有params参数已内部处理同一为data参数外， 其他参数一律和axios相同
 
 <table>
@@ -115,9 +123,19 @@ SNS.layer.closeAll();
 		<td>失败回调</td>
 	</tr>
 	<tr>
+		<td>cancelAllBeforeRequest</td>
+		<td>Boolean</td>
+		<td>值为true 时 ，取消除当前请求的所有请求</td>
+	</tr>
+	<tr>
+		<td>error</td>
+		<td>Function</td>
+		<td>失败回调</td>
+	</tr>
+	<tr>
 		<td>layerId</td>
 		<td>String  可选参数</td>
-		<td>需要加弹层的DOM的id  加此参数后，会在HTPP请求加载前自动生成局部弹层，HTTP请求加载完自动消失</td>
+		<td>需要加弹层的DOM 的CSS选择器  加此参数后，会在HTPP请求加载前自动生成局部弹层，HTTP请求加载完自动消失</td>
 	</tr>
 </table>
 
@@ -128,7 +146,7 @@ SNS.layer.closeAll();
 
 var flag=SNS.layer.load(el,config);
 
-// el 为需要加弹层的DOM 的id 
+// el 为需要加弹层的DOM 的CSS选择器
 // el为 0 时，全屏弹层
 // config 为配置参数  可选
 config={
