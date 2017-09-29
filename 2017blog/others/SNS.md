@@ -85,7 +85,7 @@ SNS.layer.closeAll();
 
 var source=SNS.ajax(config); // config 配置如下
 
-source.canel(); // 取消指定请求
+source.cancel(); // 取消指定请求
 
 ```
 
