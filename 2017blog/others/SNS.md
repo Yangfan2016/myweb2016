@@ -81,13 +81,6 @@ SNS.layer.closeAll();
 
 1. SNS.ajax
 
-```js
-
-var source=SNS.ajax(config); // config 配置如下
-
-source.cancel(); // 取消指定请求
-
-```
 
 **PS** 基于axios的封装，除文档提到的参数，还有params参数已内部处理同一为data参数外， 其他参数一律和axios相同
 
@@ -125,7 +118,7 @@ source.cancel(); // 取消指定请求
 	<tr>
 		<td>cancelAllBeforeRequest</td>
 		<td>Boolean</td>
-		<td>值为true 时 ，取消除当前请求的所有请求</td>
+		<td>值为true 时 ，取消除当前请求的所有请求, 如只需取消当前请求，请看表格下方的代码示例</td>
 	</tr>
 	<tr>
 		<td>error</td>
@@ -138,6 +131,16 @@ source.cancel(); // 取消指定请求
 		<td>需要加弹层的DOM 的CSS选择器  加此参数后，会在HTPP请求加载前自动生成局部弹层，HTTP请求加载完自动消失</td>
 	</tr>
 </table>
+
+
+```js
+
+var source=SNS.ajax(config); // config 配置如下
+
+source.cancel(); // 取消当前请求
+
+```
+
 
 
 2. SNS.layer
