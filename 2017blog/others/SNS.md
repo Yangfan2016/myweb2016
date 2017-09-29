@@ -6,9 +6,9 @@
 ```js
 
 SNS={
-	ajax:function () {...}
-	layer:{...}
-	makeAUTHHeaders:function () {...}
+	ajax:function () {...},
+	layer:{...},
+	makeAUTHHeaders:function () {...},
 }
 
 ```
