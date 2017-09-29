@@ -138,7 +138,7 @@ SNS.layer.closeAll();
 		<td>失败回调</td>
 	</tr>
 	<tr>
-		<td>layerId</td>
+		<td>layerElem</td>
 		<td>String  可选参数</td>
 		<td>需要加弹层的DOM 的CSS选择器  加此参数后，会在HTPP请求加载前自动生成局部弹层，HTTP请求加载完自动消失</td>
 	</tr>
