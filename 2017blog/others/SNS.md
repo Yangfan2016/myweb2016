@@ -1,6 +1,18 @@
 # SNS
 
 
+### 方法概览
+
+```js
+
+SNS={
+	ajax:function () {...}
+	layer:{...}
+	makeAUTHHeaders:function () {...}
+}
+
+```
+
 
 
 ### 简单使用
