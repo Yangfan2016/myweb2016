@@ -45,7 +45,7 @@ SNS.ajax({
 
 ```js
 
-SNS.makeAUTHHeaders();   // @return  {appid:"",appkey:"",sign:"",timestamp:""}
+SNS.makeAuth();   // @return  {appid:"",timestamp:""...}
 
 ```
 
