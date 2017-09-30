@@ -8,7 +8,7 @@
 SNS={
 	ajax:function () {...},
 	layer:{...},
-	makeAUTHHeaders:function () {...},
+	makeAuth:function () {...},
 }
 
 ```
