@@ -56,7 +56,7 @@ axios中使用示例
 axios({
     url: "/api/sub",
     method:"GET",
-    auth: SNS.makeAUTHHeaders()  // 加入认证头信息 
+    auth: SNS.makeAuth()  // 加入认证头信息 
     headers: {
         "Content-Type": "application/json", // 其他头信息
     },
