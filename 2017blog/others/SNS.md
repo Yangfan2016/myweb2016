@@ -75,7 +75,6 @@ SNS.layer.closeAll();
 
 
 **PS** 基于axios的封装，除文档提到的参数，还有params参数已内部处理同一为data参数外， 其他参数一律和axios相同
-
 <table>
 	<tr>
 		<th>参数</th>
@@ -85,7 +84,7 @@ SNS.layer.closeAll();
 	<tr>
 		<td>url</td>
 		<td>String</td>
-		<td>必需参数 请求地址</td>
+		<td>请求地址</td>
 	</tr>
 	<tr>
 		<td>method</td>
