@@ -110,7 +110,7 @@ SNS.layer.closeAll();
 	<tr>
 		<td>method</td>
 		<td>String</td>
-		<td>请求方法 "GET POST ..."</td>
+		<td>请求方法 "GET POST ..."  默认为GET</td>
 	</tr>
 	<tr>
 		<td>data</td>
@@ -139,7 +139,7 @@ SNS.layer.closeAll();
 	</tr>
 	<tr>
 		<td>layer</td>
-		<td>Object 可选参数</td>
+		<td>Object</td>
 		<td>加此参数后，会在HTTP请求加载前自动生成局部弹层，HTTP请求加载完自动消失   el:需要加弹层的DOM 的CSS选择器  ,setting:弹出层配置，与SNS.layer参数相同</td>
 	</tr>
 </table>
