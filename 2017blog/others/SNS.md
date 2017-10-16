@@ -140,7 +140,7 @@ SNS.layer.closeAll();
 	<tr>
 		<td>layer</td>
 		<td>Object 可选参数</td>
-		<td>加此参数后，会在HTPP请求加载前自动生成局部弹层，HTTP请求加载完自动消失   el:需要加弹层的DOM 的CSS选择器  ,setting:弹出层配置，与SNS.layer参数相同</td>
+		<td>加此参数后，会在HTTP请求加载前自动生成局部弹层，HTTP请求加载完自动消失   el:需要加弹层的DOM 的CSS选择器  ,setting:弹出层配置，与SNS.layer参数相同</td>
 	</tr>
 </table>
 
