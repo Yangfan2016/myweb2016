@@ -49,26 +49,6 @@ SNS.makeAuth();   // @return  {appid:"",timestamp:""...}
 
 ```
 
-axios中使用示例
-
-```js
-
-axios({
-    url: "/api/sub",
-    method:"GET",
-    auth: SNS.makeAuth()  // 加入认证头信息 
-    headers: {
-        "Content-Type": "application/json", // 其他头信息
-    },
-})
-    .then(function (response) {
-        // todo
-    })
-    .catch(function (error) {
-        // todo
-    });
-
-```
 
 #### 3. 单独使用SNS.layer
 
