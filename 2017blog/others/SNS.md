@@ -120,12 +120,12 @@ SNS.layer.closeAll();
 	<tr>
 		<td>success</td>
 		<td>Function </td>
-		<td>成功回调 <br/></td>
+		<td>成功回调 参数data <br/></td>
 	</tr>
 	<tr>
 		<td>error</td>
 		<td>Function</td>
-		<td>失败回调</td>
+		<td>失败回调 参数err</td>
 	</tr>
 	<tr>
 		<td>cancelAllRequest</td>
