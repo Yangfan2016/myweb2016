@@ -56,7 +56,7 @@ SNS.makeAuth();   // @return  {appid:"",timestamp:""...}
 
 // 生成
 
-var lay=SNS.layer("#t1"); // 返回一个唯一标识符，用于关闭时使用
+var lay=SNS.layer.load("#t1"); // 返回一个唯一标识符，用于关闭时使用
 
 // 关闭指定弹层
 
