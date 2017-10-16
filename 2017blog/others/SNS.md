@@ -128,7 +128,7 @@ SNS.layer.closeAll();
 		<td>失败回调</td>
 	</tr>
 	<tr>
-		<td>cancelAllBeforeRequest</td>
+		<td>cancelAllRequest</td>
 		<td>Boolean</td>
 		<td>值为true 时 ，取消除当前请求的所有请求, 如只需取消当前请求，请看表格下方的代码示例</td>
 	</tr>
