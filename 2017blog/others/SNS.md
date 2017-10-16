@@ -105,7 +105,7 @@ SNS.layer.closeAll();
 	<tr>
 		<td>url</td>
 		<td>String</td>
-		<td>请求地址</td>
+		<td>必需参数 请求地址</td>
 	</tr>
 	<tr>
 		<td>method</td>
@@ -161,9 +161,9 @@ source.cancel(); // 取消当前请求
 
 var flag=SNS.layer.load(el,config);
 
-// el 为需要加弹层的DOM 的CSS选择器
+// el 为需要加弹层的DOM 的CSS选择器 必需参数
 // el为 0 时，全屏弹层
-// config 为配置参数  可选
+// config 为配置参数  可选参数
 config={
 	shade:0.5  // 遮罩层的背景透明度 范围 0-1,
 	timeout:1*1000 //   超时关闭  毫秒
