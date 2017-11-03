@@ -2,7 +2,7 @@
 
 ## 兼容性
 
-### 1. IE 浏览器  “Promise 未定义” (axios 的问题，非Vue)
+### 1. ~~IE 浏览器  “Promise 未定义” (axios 的问题，非Vue)~~
 
   - A：IE 浏览器  “Promise 未定义” ， IE 不支持ES6 语法 ，需要polyfill脚本   
   - Q：引入babel-polyfill文件，用babel来编译ES6    
