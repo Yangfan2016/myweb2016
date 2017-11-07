@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-	name:"lunbo",
+    name:"lunbo",
     props:{
         // 滚动内容
         lunList:{
