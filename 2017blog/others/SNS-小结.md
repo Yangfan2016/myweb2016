@@ -85,7 +85,7 @@ var getInfo=function () {
 
 ## 插件使用
 
-~~尽量选择不依赖jq的纯js插件      
+~~尽量选择不依赖jq的纯js插件~~      
 
 例如 layui   [http://www.layui.com/doc/modules/layer.html](http://www.layui.com/doc/modules/layer.html)
 
