@@ -34,7 +34,7 @@ views目录下存放自动生成的cshtml文件  
 
 ![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-002.jpg)  
 
-#### 5. 修改打包html文件的配置  
+#### 5. 修改打包html文件的配置  进入 build/webpack.prod.conf.js
 
 ![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-003.png) 
 
