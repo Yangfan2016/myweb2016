@@ -16,12 +16,12 @@
 
 frontend 为Vue-cli自动生成的项目文件  
 content 目录下存放打包后的资源文件  
-view目录下存放自动生成的cshtml文件  
+views目录下存放自动生成的cshtml文件  
 
 ![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-004.png) 
   
   
-#### 2. 进入此文件夹   配置 package.json ，安装所需插件  
+#### 2. 进入此文件夹（这里是 frontend）   配置 package.json ，安装所需插件  
 
 ![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-005.png) 
 
