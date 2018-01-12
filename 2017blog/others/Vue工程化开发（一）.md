@@ -43,4 +43,7 @@ views目录下存放自动生成的cshtml文件  
 #### 7. `npm run build` 打包  
 
 
+## 项目目录
+
+![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-006.png) 
 
