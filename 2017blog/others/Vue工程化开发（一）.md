@@ -45,5 +45,5 @@ views目录下存放自动生成的cshtml文件  
 
 ## 项目目录
 
-![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-006.png) 
+![](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/webpack-vue-cli-006.png)
 
