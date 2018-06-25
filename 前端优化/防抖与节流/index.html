@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>debounce and throttle</title>
+    <style>
+        .bar {
+            float: left;
+            width: 5px;
+            height: 15px;
+            margin: 2px;
+        }
+
+        .c-white {
+            background-color: #ccc;
+        }
+
+        .c-red {
+            background-color: #f20;
+        }
+
+        .c-green {
+            background-color: #080;
+        }
+
+        .c-purple {
+            background-color: rgb(148, 32, 216);
+        }
+
+        .c-yellow {
+            background-color: #f50;
+        }
+
+        .c-blue {
+            background-color: #26f;
+        }
+    </style>
+</head>
+<button id="hoverBox">hover me</button>
+<button id="resetbtn">RESET</button>
+<div id="soureBox" style="overflow: hidden;">
+    <!-- <span class="bar c-white"></span>
+    <span class="bar c-red"></span>
+    <span class="bar c-green"></span>
+    <span class="bar c-purple"></span>
+    <span class="bar c-yellow"></span>
+    <span class="bar c-blue"></span> -->
+</div>
+<div id="reactBox" style="overflow: hidden;">
+    <!-- <span class="bar c-red"></span>
+    <span class="bar c-green"></span>
+    <span class="bar c-purple"></span>
+    <span class="bar c-yellow"></span>
+    <span class="bar c-blue"></span> -->
+</div>
+
+<body>
+    <script>
+        var activceColorList = ["red", "green", "purple", "yellow", "blue"];
+        var initColor = "white";
+        var debounceColor = initColor;
+        var rawColor = initColor;
+        var curColor = initColor;
+        var count = 0;
+        var gTimer = null;
+
+        var getCurColor = function () {
+            return activceColorList[count];
+        };
+
+        var changeColor = function () {
+            count = count + 1 >= activceColorList.length ? 0 : count + 1;
+        };
+
+        var debounce = function (fn, delay, isImmediate) {
+            var timer = null;
+
+            isImmediate = typeof isImmediate === "undefined" ? true : isImmediate;
+
+            return function () {
+                var ctx = this,
+                    args = arguments;
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                if (isImmediate) {
+                    if (!timer) {
+                        fn.apply(ctx, args);
+                    }
+                    timer = setTimeout(_ => {
+                        timer = null;
+                        console.log("CLEAR");
+                        changeColor();
+                    }, delay);
+                } else {
+                    timer = setTimeout(_ => {
+                        fn.apply(ctx, args);
+                        changeColor();
+                    }, delay);
+                }
+            };
+        };
+
+        var throttle = function (fn, delay, isImmediate) {
+            var timer = null;
+
+            isImmediate = typeof isImmediate === "undefined" ? true : isImmediate;
+
+            return function () {
+                var ctx = this,
+                    args = arguments;
+                if (!timer) {
+                    if (isImmediate) fn.apply(ctx, args);
+                    timer = setTimeout(function () {
+                        clearTimeout(timer);
+                        timer = null;
+                        if (!isImmediate) fn.apply(ctx, args);
+                        console.log("CLEAR");
+                        changeColor();
+                    }, delay);
+                }
+            };
+        };
+
+        var print = function (e) {
+            console.log(String(Date.now() / 1000 | 0).substr(-1));
+            debounceColor = getCurColor();
+        };
+
+        var maketargetBox = function () {
+            if (soureBox.childElementCount > 100) {
+                clearInterval(gTimer);
+                gTimer = null;
+                return;
+            }
+            soureBox.innerHTML += `
+            <span class="bar c-${rawColor}"></span>
+            `;
+            reactBox.innerHTML += `
+            <span class="bar c-${debounceColor}"></span>
+            `;
+            rawColor = debounceColor = initColor;
+        }
+
+
+
+        hoverBox.addEventListener("mouseover", function () {
+            if (!gTimer) {
+                gTimer = setInterval(function () {
+                    maketargetBox();
+                }, 400);
+            }
+            maketargetBox();
+            rawColor = getCurColor();
+        });
+        // hoverBox.addEventListener("mouseover",debounce(print,1000,false));
+        hoverBox.addEventListener("mouseover", throttle(print, 1000, false));
+
+        resetbtn.addEventListener("click", function () {
+            clearInterval(gTimer);
+            gTimer=null;
+            count=0;
+            soureBox.innerHTML = "";
+            reactBox.innerHTML = "";
+        });
+    </script>
+</body>
+
+</html>
