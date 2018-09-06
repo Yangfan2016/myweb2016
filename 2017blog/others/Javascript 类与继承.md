@@ -54,7 +54,7 @@ c2.colors; // ['red','yellow','green']
 ```
 
 - 缺点  
-1. 子类公用一个父类的实例，造成数据污染  
+1. 子类共用一个父类的实例，造成数据污染  
 1. 创建子类实例时，无法向父类构造函数传参
 
 ### 组合式继承
@@ -150,9 +150,12 @@ class Child extends Parent{
 
 - 下面是babel将ES6转成ES5继承的实现
 
+### Babel 编译后的ES5代码
+
 ```js
 "use strict";
 
+// 创建类
 var _createClass = function() {
     function defineProperties(target, props) {
         for (var i = 0; i < props.length; i++) {
@@ -165,26 +168,29 @@ var _createClass = function() {
         }
     }
     return function(Constructor, protoProps, staticProps) {
+        // 原型对象属性、方法
         if (protoProps)
             defineProperties(Constructor.prototype, protoProps);
+        // 静态属性、方法
         if (staticProps)
             defineProperties(Constructor, staticProps);
         return Constructor;
     }
     ;
 }();
-
+// 确保子类初始化时调用super
 function _possibleConstructorReturn(self, call) {
     if (!self) {
         throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     }
     return call && (typeof call === "object" || typeof call === "function") ? call : self;
 }
-
+// 继承
 function _inherits(subClass, superClass) {
     if (typeof superClass !== "function" && superClass !== null) {
         throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
     }
+    // 利用 Object.crete 创建了一个父类原型对象的新实例，并且修正了构造器指向
     subClass.prototype = Object.create(superClass && superClass.prototype, {
         constructor: {
             value: subClass,
@@ -193,10 +199,11 @@ function _inherits(subClass, superClass) {
             configurable: true
         }
     });
+    // 将子类原型链链到父类上
     if (superClass)
         Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-
+// 安全检测，确保用 'new' 操作的构造函数
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
